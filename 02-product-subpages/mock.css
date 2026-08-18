@@ -1,0 +1,317 @@
+/* Product SUB-PAGES (Health, Environment) - mock stylesheet.
+   BASELINE = Jannes's live build, ../jannes-prototype-2026-08-16/d_health.png
+   and d_environment.png. Shell, left rail, card shape, palette and type are
+   his and unchanged. Deviations are listed in SESSION-NOTES.md.
+
+   Overview condenses (design-system.md 3c), the sub-page EXPANDS
+   (design-system.md 3d, reused verbatim). That split is the answer to
+   Jannes's 2026-08-03 question.
+
+   Tokens, base and the shared primitives come from ../shared/mock.css; only
+   the sub-pages' own components live here. */
+
+@import url('../shared/mock.css');
+
+/* ---------- shells ---------- */
+
+.webbar {
+  display: flex; align-items: center; gap: 18px;
+  padding: 16px 32px; border-bottom: 1px solid var(--line);
+}
+.webbar .logo { font-weight: 800; font-size: 19px; letter-spacing: -.3px; }
+.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 6px; border-radius: 5px; }
+.webbar .spacer { flex: 1; }
+.webbar .btn {
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 15px; font-size: 13.5px; color: var(--txt); font-weight: 500;
+}
+
+.appbar { display: none; }
+
+/* ---------- page ---------- */
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 26px 32px 46px; }
+.cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
+.cols > * { min-width: 0; }
+
+/* ---------- identity ---------- */
+
+.ident { display: block; }
+.ident .photo {
+  background: var(--card2); border: 1px solid var(--line); border-radius: var(--r);
+  aspect-ratio: 1; overflow: hidden; margin-bottom: 16px;
+}
+.ident .photo img { width: 100%; height: 100%; object-fit: cover; }
+.ident .photo.empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; color: var(--muted); font-size: 13.5px; text-align: center;
+}
+.ident .code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--muted); }
+.ident h1 { font-size: 27px; font-weight: 800; letter-spacing: -.6px; margin: 3px 0 1px; }
+.ident .brand { color: var(--muted); font-size: 14px; }
+
+/* ---------- the preferences card (Jannes's score rows, with the
+     heading, the % badge and the preferences footer folded in) ---------- */
+
+.scores { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-top: 18px; }
+
+.shead { display: flex; align-items: center; gap: 10px; padding: 12px 15px; border-bottom: 1px solid var(--line); }
+.shead h2 { font-size: 13.5px; font-weight: 700; letter-spacing: -.1px; }
+.shead .spacer { flex: 1; }
+
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 3px 10px 3px 4px; white-space: nowrap; }
+.pill b { font-size: 12.5px; font-weight: 800; border-radius: 999px; padding: 2px 7px; }
+.pill.bad   { background: var(--bad-tint);  color: var(--bad-soft); }
+.pill.bad b { background: var(--bad); color: var(--on-bad); }
+.pill.unk   { background: var(--unknown-tint); color: var(--unknown-soft); }
+.pill.unk b { background: var(--unknown-fill); color: var(--on-unknown); }
+/* .quiet = the badge without the filled background (2026-08-17). The rail is on
+   every tab, so it has to match the overview exactly. */
+.pill.quiet   { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 3px 11px; }
+.pill.quiet b { background: transparent; color: var(--txt); padding: 0 3px 0 0; }
+
+.score { display: flex; align-items: center; gap: 10px; padding: 11px 15px; border-bottom: 1px solid var(--line); }
+.score:last-of-type { border-bottom: 0; }
+.score .lab { min-width: 0; flex: 1; }
+.score .n { display: block; font-weight: 600; font-size: 14px; }
+.score .s { display: block; color: var(--muted); font-size: 12px; }
+
+.scale { display: flex; gap: 3px; flex: none; }
+.scale span {
+  width: 22px; text-align: center; font-size: 11px; font-weight: 700;
+  padding: 3px 0; border-radius: 5px; background: var(--card2); color: var(--faint);
+}
+.scale.g7 span { width: 18px; font-size: 10px; }
+.scale span.on { border-radius: 8px; }
+.scale span.on.bad { background: var(--bad); color: var(--on-bad); }
+.scale span.on.ok  { background: var(--orange); color: var(--on-warm); }
+.scale.off span { opacity: .5; }
+
+.sfoot { display: flex; align-items: center; gap: 10px; padding: 10px 15px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+.sfoot .spacer { flex: 1; }
+.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
+.toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--on-accent); }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--txt); font-weight: 500; white-space: nowrap; }
+
+.fix {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 3px 10px;
+}
+.score .fix { margin-top: 6px; }
+
+/* ---------- condensed overview tiles ---------- */
+
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 30px; }
+.tile > h3 { font-size: 20px; font-weight: 700; letter-spacing: -.2px; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+
+.grp { padding: 18px 24px; border-bottom: 1px solid var(--line-soft); }
+.grp:last-of-type { border-bottom: 0; }
+.grp .sub { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+.grp .sub em { font-style: normal; color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 5px; }
+
+.vals { display: flex; flex-wrap: wrap; gap: 5px 18px; font-size: 13.5px; color: var(--muted); }
+/* DIRECT child only: a nested <span> used to inherit inline-flex + gap, which
+   turned a sentence into a second flex column (caught in a render 2026-08-17). */
+.vals > span { display: inline-flex; align-items: center; gap: 6px; }
+.vals b { font-weight: 600; color: var(--txt); }
+.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.vals .d.good { background: var(--good); }
+.vals .d.bad { background: var(--bad); }
+.vals .d.unk { background: var(--unknown); }
+.vals .bad b, .vals b.bad { color: var(--bad-text); }
+.vals .more { color: var(--faint); }
+
+.tilefoot { padding: 14px 24px; border-top: 1px solid var(--line); }
+.tilefoot a { color: var(--peach); font-size: 13.5px; font-weight: 600; text-decoration: none; }
+
+/* ---------- contribution ---------- */
+
+.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }
+.meter i { display: block; height: 100%; background: var(--peach); }
+.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.metertxt .spacer { flex: 1; }
+
+.task { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid var(--line-softer); }
+.task:last-child { border-bottom: 0; }
+.task .num { width: 22px; height: 22px; border-radius: 50%; background: var(--peach); color: var(--on-accent); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+.task .t { flex: 1; min-width: 0; font-size: 13.5px; }
+.task .t b { font-weight: 600; }
+.task .t i { font-style: normal; color: var(--muted); }
+.task .time { color: var(--muted); font-size: 12.5px; flex: none; }
+
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pair .tile { margin-bottom: 0; }
+
+/* ---------- tab strip.
+     The tabs are SERVER OUTPUT: `root` returns health_card, environment_card,
+     report_problem_card, product_card (design-constraints.md 5). ---------- */
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; overflow-x: auto; }
+.tabs a {
+  padding: 9px 14px; font-size: 13.5px; font-weight: 600; color: var(--muted);
+  border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none;
+}
+.tabs a.on { color: var(--orange); border-bottom-color: var(--orange); }
+
+/* ---------- expanded detail row - design-system.md 3d, verbatim ---------- */
+
+.grp > .lbl { color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin: 12px 0 4px; }
+.grp > .lbl:first-child { margin-top: 0; }
+.row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
+.row:last-child { border-bottom: 0; }
+/* The status dot was removed 2026-08-17 (Stephane, #redesign-poc): the server's
+   own icon_url is drawn from the same attribute.grade, so the dot said it twice.
+   Row colour now comes from the icon alone; the title still says "in high
+   quantity", so no state is carried by colour only. */
+.row img.ic { width: 26px; height: 26px; flex: none; object-fit: contain; }
+/* the Nutri-Score / Green-Score icon IS the grade scale - unreadable at 26px */
+.row img.ic.wide { width: 62px; height: 32px; }
+/* panels return `icon_color_from_evaluation: true` for these, i.e. a
+   monochrome mask the client colours. Ours reads as a light glyph. */
+.row img.ic.mono { filter: brightness(0) invert(1); opacity: .6; }
+.row .txt { flex: 1; min-width: 0; }
+.row .txt b { font-weight: 600; font-size: 14.5px; }
+.row .txt i { font-style: normal; color: var(--muted); font-size: 13px; display: block; }
+.row .why { color: var(--faint); font-size: 17px; }
+.row.muted b { color: var(--muted); font-weight: 500; }
+.row .scale { margin-left: auto; }
+.row .fix { margin-left: auto; }
+
+/* ---------- TIER 2: expand in place, instead of pushing a page ----------
+   Drawn open in the mockup so the content is visible. The rule that decides
+   which rows get one is in SESSION-NOTES.md: a chevron only where the target
+   panel exists AND its body is product-specific. */
+
+.row .cv { margin-left: auto; flex: none; color: var(--peach); font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.box { background: var(--card2); border-radius: 11px; padding: 11px 13px 10px; margin: 2px 0 10px; }
+.box + .box { margin-top: -4px; }
+.box .bh { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px; margin-bottom: 7px; }
+.box .bh b { color: var(--txt); }
+
+.mini { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mini td { padding: 5px 0; border-top: 1px solid var(--line-strong); color: var(--muted); }
+.mini tr:first-child td { border-top: 0; }
+.mini td:last-child { text-align: right; color: var(--txt); font-weight: 600; white-space: nowrap; }
+.mini tr.tot td { border-top: 1px solid var(--line); color: var(--txt); font-weight: 700; }
+
+/* life-cycle share, one bar instead of a six-row percentage table */
+.bar { display: flex; height: 9px; border-radius: 999px; overflow: hidden; margin: 3px 0 8px; }
+.bar i { display: block; height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 3px 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend em { font-style: normal; width: 8px; height: 8px; border-radius: 2px; flex: none; }
+
+/* A RECOMMENDATION is not an explainer. `level: "recommendation"` is the only
+   non-info level the API returns, and the panel's PRESENCE is conditional on the
+   product even though its text is generic - so it is shown, never linked. */
+.row.rec {
+  background: var(--bad-tint-weak); border: 1px solid var(--bad-edge);
+  border-radius: 11px; padding: 10px 12px; margin: 9px 0 2px;
+}
+.row.rec .txt b { color: var(--bad-soft); }
+.row.rec .txt i { color: var(--warm-soft); }
+
+/* ONE generic explainer per section, replacing a chevron on every row */
+.learn { display: block; margin-top: 10px; font-size: 12.5px; color: var(--peach); font-weight: 600; }
+
+/* a whole group collapsed into one grey line - content rule 4 */
+.rowmore { padding: 9px 0 2px; color: var(--faint); font-size: 13px; }
+
+/* server-written disclaimer that ships inside a panel */
+.note { color: var(--muted); font-size: 12.5px; line-height: 1.5; padding: 10px 0 2px; }
+
+/* free text a panel returns as prose (the ingredient list) */
+.prose { font-size: 13.5px; line-height: 1.55; color: var(--muted); padding: 4px 0 2px; }
+.prose b { color: var(--txt); font-weight: 600; }
+
+/* ---------- nutrition declaration table - kept from his build ---------- */
+
+.ntab { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.ntab th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12.5px; padding: 0 0 9px; }
+.ntab th:last-child, .ntab td:last-child { text-align: right; }
+.ntab td { padding: 9px 0; border-top: 1px solid var(--line-soft); }
+.ntab tr.ind td:first-child { padding-left: 18px; color: var(--muted); }
+
+/* ================= MOBILE = read it as the app ================= */
+
+@media (max-width: 700px) {
+  .webbar { display: none; }
+
+  .appbar {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
+  }
+  .appbar .ico { font-size: 19px; color: var(--txt); }
+  .appbar .ttl { font-weight: 700; font-size: 16px; flex: 1; }
+
+  .wrap { padding: 14px 14px 20px; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+
+  /* his 2 Aug mobile: square thumbnail on the left, identity on the right */
+  .ident { display: flex; align-items: center; gap: 16px; }
+  .ident .photo { width: 104px; flex: none; margin-bottom: 0; }
+  .ident .txt { min-width: 0; }
+  .ident h1 { font-size: 23px; }
+
+  .scores { margin-bottom: 20px; }
+  .scale span { width: 24px; }
+  .scale.g7 span { width: 20px; }
+
+  .tabs { margin: 0 -14px 16px; padding: 0 8px; }
+  .tabs a { padding: 9px 11px; font-size: 13px; }
+
+  .tile > h3 { font-size: 18px; padding: 16px; }
+  .grp { padding: 15px 16px; }
+  .row { gap: 10px; }
+  .row img.ic { width: 24px; height: 24px; }
+  .row .txt b { font-size: 14px; }
+  .row .cv { font-size: 12px; }
+  .box { padding: 10px 11px 9px; }
+  .tilefoot { padding: 13px 16px; }
+  .pair { grid-template-columns: 1fr; gap: 0; }
+  .pair .tile { margin-bottom: 20px; }
+
+}
+
+/* ================= item 4, DESKTOP AIR (Stephane, 2026-08-17 19:25) ===============
+   "For mobile, why not the middle. It's especially for the desktop that more space
+   would be good I think." The middle option is what this file already was, so mobile
+   does not move at all; only >=1100px gets more room. Same content, same order, one
+   column. Measured on the product page: 2,036 -> 2,404 px at 1440.
+   A two-column tile grid was tried first and rejected on the render - at 1440 it
+   leaves ~430px a tile and wraps "Nutri-Score E" onto three lines
+   (06-feedback-round-2/renders/deskair-2col-1440.png). */
+/* ================= the tablet band, 701-1023px (added 2026-08-18) ==================
+   Below 1024 the two-column grid gave the right column ~430px and every label wrapped
+   mid-phrase. Single column instead, and the tab strip wraps rather than scrolling out
+   of sight. The upper stop is Explorer's own Tailwind `lg:` (1024, docs/DESIGN.md §5)
+   so an implementer never has to invent one.
+   Nothing at 412 or 1440 changes - proven by re-rendering both. */
+@media (min-width: 701px) and (max-width: 1023px) {
+  .wrap { max-width: 860px; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+  .tabs { flex-wrap: wrap; }
+  /* a full-width photo would push the match card under the fold - draft 2's own bug */
+  .ident .photo { max-width: 360px; }
+}
+
+@media (min-width: 1100px) {
+  .wrap { max-width: 1320px; padding: 36px 44px 64px; }
+  .cols { grid-template-columns: 400px 1fr; gap: 36px; }
+  .tabs { margin-bottom: 30px; }
+  .tile { margin-bottom: 40px; }
+  .tile > h3 { padding: 24px 30px; }
+  .grp { padding: 24px 30px; }
+  .hero { padding: 28px 30px; gap: 24px; }
+  .tilefoot { padding: 20px 30px; }
+  .vals { gap: 13px 30px; font-size: 14.5px; }
+}
+
+/* ================= item 3, MOBILE ONLY (Stephane, 2026-08-17 14:23 + 14:25) =======
+   A sub-page IS a tab pane, so at 412 it shows the photo, the strip and its own
+   content. The matching card is the OVERVIEW pane's content and is hidden here - the
+   same rule that empties the overview of everything except the match.
+   Desktop keeps it in the left column as a rail on every view. */
+@media (max-width: 700px) {
+  .scores { display: none; }
+}

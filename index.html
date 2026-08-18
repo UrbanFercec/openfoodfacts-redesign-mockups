@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Food Facts - redesign mockups</title>
+<link rel="stylesheet" href="shared/mock.css">
+<style>
+  body { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 30px; font-weight: 800; letter-spacing: -.5px; margin: 0 0 8px; }
+  .lede { color: var(--muted); margin: 0 0 40px; max-width: 60ch; }
+  section { margin-bottom: 56px; }
+  h2 { font-size: 20px; font-weight: 700; margin: 0 0 10px; }
+  .open, .note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+  a.live {
+    display: inline-block; margin-right: 8px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--orange); text-decoration: none; font-weight: 600;
+  }
+  a.live:hover { border-color: var(--orange); }
+  img { width: 100%; border: 1px solid var(--line); border-radius: var(--r); display: block; }
+</style>
+</head>
+<body>
+<h1>Open Food Facts - redesign mockups</h1>
+<p class="lede">Work in progress, shared for feedback. The linked pages are the real HTML, so they
+reflow at whatever width you open them - phone included. Screens without a link are images for now.</p>
+<section>
+<h2>Product page</h2>
+<p class="open">Open it at your own size: <a class="live" href="01-product-page/product-nutella.html">with data</a><a class="live" href="01-product-page/product-missing-data.html">almost no data</a></p>
+<a href="img/POST-product-page.png"><img src="img/POST-product-page.png" alt="Product page"></a>
+</section>
+<section>
+<h2>Health and Environment</h2>
+<p class="open">Open it at your own size: <a class="live" href="02-product-subpages/v2-health.html">Health</a><a class="live" href="02-product-subpages/v2-environment.html">Environment</a><a class="live" href="02-product-subpages/v2-environment-computed.html">Environment, score computed</a></p>
+<a href="img/POST-product-subpages.png"><img src="img/POST-product-subpages.png" alt="Health and Environment"></a>
+</section>
+<section>
+<h2>Home</h2>
+<p class="note">Images only for now - this screen has no phone layout yet.</p>
+<a href="img/POST-home.png"><img src="img/POST-home.png" alt="Home"></a>
+</section>
+
+</body>
+</html>
