@@ -1,0 +1,188 @@
+/* Profile tab - renamed from "Community" (Urban, 2026-08-16). Tokens, shell and
+   shared primitives come from ../shared/mock.css; only profile's own parts here.
+   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
+
+   Two surfaces, and on the web the screen is a TWIN: Explorer splits it into `/settings`
+   and `/users/[user]`, so profile-web.html draws both halves as one page. The app halves
+   are profile-in.html / profile-out.html. */
+
+@import url('../shared/mock.css');
+
+/* ---------- the app halves ---------- */
+
+/* the signed-in header - their `Profil (connecté)` artboard, minus the two
+   orange counter tiles, which are demoted below. ⛔ no member-since line until
+   ask A8 lands: `registered_t` is on no API today */
+.phead {
+  background: var(--card); padding: 18px 16px 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.phead .av {
+  width: 54px; height: 54px; border-radius: 50%; flex: none; background: var(--card2);
+  display: flex; align-items: center; justify-content: center; font-size: 25px;
+}
+.phead .who { flex: 1; min-width: 0; }
+.phead .who b { display: block; font-size: 18px; font-weight: 800; color: var(--orange); letter-spacing: -.3px; }
+.phead .edit {
+  width: 36px; height: 36px; border-radius: 50%; flex: none; border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--muted);
+}
+
+/* signed-out header */
+.pout { background: var(--card); padding: 18px 16px 18px; }
+.pout .who { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.pout .who .av {
+  width: 44px; height: 44px; border-radius: 50%; flex: none; background: var(--card2);
+  display: flex; align-items: center; justify-content: center; font-size: 21px;
+}
+.pout .who b { font-size: 16px; font-weight: 700; color: var(--muted); }
+.pout .btns { display: flex; gap: 10px; }
+.pout .btns > * { flex: 1; text-align: center; }
+
+/* the record of what you have contributed - the numbers stay here, the
+   ACTIONS moved to Home. Deliberately NOT the live tab's two orange hero tiles */
+.record { padding: 13px 14px 0; }
+.record .recs { display: flex; gap: 10px; }
+.rec {
+  flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 12px 13px;
+}
+.rec b { display: block; font-size: 21px; font-weight: 800; letter-spacing: -.5px; }
+.rec span { color: var(--muted); font-size: 12.5px; }
+.statlink {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  margin-top: 10px; padding: 9px; border: 1px solid var(--line); border-radius: var(--r);
+  font-size: 13.5px; font-weight: 700; color: var(--peach);
+}
+
+/* settings cards - their card + row shape, our tokens */
+.pcard2 { margin: 13px 14px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.pcard2 > h3 {
+  font-size: 13.5px; font-weight: 700; padding: 11px 15px;
+  border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 9px;
+}
+.pcard2 > h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--peach); flex: none; }
+.prow { display: flex; align-items: center; gap: 13px; padding: 12px 15px; border-bottom: 1px solid var(--line-soft); }
+.prow:last-child { border-bottom: 0; }
+.prow .pi { width: 26px; text-align: center; font-size: 16px; flex: none; color: var(--muted); }
+.prow .t { flex: 1; min-width: 0; }
+.prow .t b { display: block; font-size: 14px; font-weight: 600; }
+.prow .t i { font-style: normal; display: block; color: var(--muted); font-size: 12.5px; }
+/* the shipped `boldPostScriptum` - "You haven't set any preference yet." on a vertical that has
+   never been configured. An empty state is a prompt, not a dead end (design-system.md §4 rule 3) */
+.prow .t em { font-style: normal; display: block; color: var(--peach); font-size: 12.5px; font-weight: 700; }
+.prow .go2 { color: var(--faint); font-size: 17px; flex: none; }
+.prow.dim .t b { color: var(--muted); }
+
+/* the settings search field, which is the one search that belongs here */
+.psearch { margin: 13px 14px 0; }
+
+/* ---------- the web half: `/settings` and `/users/[user]` as one page ---------- */
+
+/* same skeleton as screens/05-search, so the two web screens match */
+.webbar {
+  display: flex; align-items: center; gap: 18px;
+  padding: 13px 32px; background: var(--card); border-bottom: 1px solid var(--line);
+}
+.webbar .logo { font-size: 19px; }
+.webbar .spacer { flex: 1; }
+.webbar .btn {
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px;
+  font-size: 13px; font-weight: 600; color: var(--muted2);
+}
+.webbar .btn.me { color: var(--txt); }
+.field {
+  display: flex; align-items: center; gap: 10px; min-width: 0; width: 420px;
+  background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
+  padding: 5px 5px 5px 17px;
+  box-shadow: 0 0 0 3px var(--ring-peach), 0 8px 18px rgba(0, 0, 0, .34);
+}
+.field .q { flex: 1; min-width: 0; font-size: 14.5px; font-weight: 500; color: var(--txt); }
+.field .q.hint { color: var(--muted2); }
+.field .go {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--orange); color: var(--on-accent);
+  display: flex; align-items: center; justify-content: center; font-size: 17px; flex: none;
+}
+
+/* their own second-level nav band, kept because it is what the live site has */
+.navband {
+  display: flex; gap: 46px; justify-content: center;
+  background: var(--card2); border-bottom: 1px solid var(--line);
+  padding: 11px 32px; font-size: 13.5px; font-weight: 600; color: var(--txt2);
+}
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 26px 32px 50px; }
+.phead1 { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.phead1 .spacer { flex: 1; }
+h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 12px; }
+h2.sethead {
+  font-size: 20px; margin: 40px 0 16px; padding-top: 26px; border-top: 1px solid var(--line);
+}
+
+/* ⛔ the settings half sits BELOW the record, not in a rail beside it. Drawn both ways first:
+   a 330px rail left ~1,300px of dead column at 1440, which is exactly the defect
+   design-system.md §2b names for the tablet band, one breakpoint down. */
+.setgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: start; }
+.setgrid > * { min-width: 0; }
+.setgrid .pcard2 { margin: 0; }
+
+/* the record, argued from Explorer's /users/[user]: counts AND the products under them.
+   Four cards, not three - the app counts prices and the web does not, and both are live */
+.recweb { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.rc {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 14px 16px;
+}
+.rc b { display: block; font-size: 25px; font-weight: 800; letter-spacing: -.6px; }
+.rc span { color: var(--muted); font-size: 12.5px; }
+
+.pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pc {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.pc .shot { height: 168px; background: var(--card2); }
+.pc .shot img { width: 100%; height: 100%; object-fit: cover; }
+.pcb { padding: 11px 13px 13px; }
+.pcb b { display: block; font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pcb i { font-style: normal; display: block; color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* the score strip. ⛔ Green-Score has three non-grade states and this draws all of them -
+   Explorer's card renders one grey badge and says nothing (api-note.md §3) */
+.scs { display: flex; gap: 6px; margin-top: 10px; }
+.sc {
+  flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 8px;
+  padding: 5px 4px; text-align: center;
+}
+.sc i { font-style: normal; display: block; font-size: 9px; color: var(--faint); letter-spacing: .2px; }
+.sc b { display: block; font-size: 14px; font-weight: 800; }
+.sc.good b { color: var(--good); }
+.sc.warn b { color: var(--orange); }
+.sc.bad b { color: var(--bad); }
+.sc.unk b { color: var(--unknown-soft); font-size: 12px; }
+
+.viewall {
+  margin-top: 14px; padding: 10px; text-align: center;
+  border: 1px solid var(--line); border-radius: var(--r);
+  font-size: 13.5px; font-weight: 600; color: var(--txt2);
+}
+
+/* the three stops, pinned to Explorer's own (design-system.md §2b) */
+@media (max-width: 1023px) {
+  .setgrid { grid-template-columns: repeat(2, 1fr); }
+  .recweb { grid-template-columns: repeat(2, 1fr); }
+  .navband { gap: 26px; overflow-x: auto; justify-content: flex-start; }
+}
+@media (max-width: 700px) {
+  .webbar { flex-wrap: wrap; gap: 12px; padding: 12px 14px; }
+  .field { width: 100%; order: 3; }
+  .wrap { padding: 18px 14px 34px; }
+  .pgrid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pc .shot { height: 118px; }
+  .setgrid { grid-template-columns: 1fr; gap: 12px; }
+  h1 { font-size: 23px; }
+  /* a 2-up grid at 412 leaves ~55px per score cell, which clipped "Nutri-Score" to "Nutri-S".
+     Wrap the label instead of truncating it - a cut label is a cut verdict. */
+  .sc i { white-space: normal; line-height: 1.15; font-size: 8.5px; }
+}
