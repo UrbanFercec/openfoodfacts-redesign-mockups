@@ -1,8 +1,8 @@
 /* Product page redesign - mock stylesheet.
    BASELINE = Jannes's 2 August build (his Slack screenshots + the live
-   capture in ../jannes-prototype-2026-08-16/). Palette, type, card shape,
+   capture in ../../jannes-prototype-2026-08-16/). Palette, type, card shape,
    layout order and the condensed overview tiles are his. Every deviation
-   is listed in ../README.md under "Draft 3".
+   is listed in ../../README.md under "Draft 3".
 
    Overview = condensed: one grouped line of values per topic, drill-in at
    the tile footer. The per-attribute list belongs on the sub-pages.
@@ -262,7 +262,7 @@
    tabs could be moved between the picture and the matching with your preferences".
 
    So at 412 this file is the OVERVIEW PANE: photo, strip, matching card, then the
-   tiles that no other pane renders.
+   tiles that no other pane renders
    `display: contents` dissolves <aside> and <main> so .cols can order their children
    directly; without it the strip cannot get between two boxes that live in different
    grid items.

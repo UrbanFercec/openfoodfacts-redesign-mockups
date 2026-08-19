@@ -1,5 +1,5 @@
 /* Batch 3, screen 1 - Search: entry, results, and the red-line grouping.
-   Tokens, base, the app shell and the shared primitives come from ../shared/mock.css.
+   Tokens, base, the app shell and the shared primitives come from ../shared/mock.css
    ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md). */
 
 @import url('../shared/mock.css');
