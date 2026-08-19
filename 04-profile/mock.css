@@ -111,10 +111,12 @@
   padding: 11px 32px; font-size: 13.5px; font-weight: 600; color: var(--txt2);
 }
 
-.wrap { max-width: 1240px; margin: 0 auto; padding: 26px 32px 50px; }
+/* 1180 / 26px 32px 46px is what 01, 02, 05 and 06 all use. This file had 1240/50 for no reason
+   and the cross-screen pass caught it (CROSS-SCREEN-batch3.md Q5). */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 26px 32px 46px; }
 .phead1 { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
 .phead1 .spacer { flex: 1; }
-h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
+h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }   /* = 05-search's page title */
 h2 { font-size: 16px; font-weight: 700; margin: 28px 0 12px; }
 h2.sethead {
   font-size: 20px; margin: 40px 0 16px; padding-top: 26px; border-top: 1px solid var(--line);
