@@ -46,7 +46,7 @@
   --promo-grad: #282c34;
   --device-1: #454b54;
   --device-2: #191b1f;
-  --r: 14px;
+  --r: 16px;
   --line-strong: color-mix(in srgb, var(--line) 70%, transparent);
   --line-soft: color-mix(in srgb, var(--line) 55%, transparent);
   --line-softer: color-mix(in srgb, var(--line) 45%, transparent);
@@ -108,7 +108,7 @@ a { color: inherit; text-decoration: none; }
 
 /* the OFF logo lockup, both surfaces */
 .logo { font-weight: 800; letter-spacing: -.4px; white-space: nowrap; }
-.logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 7px; border-radius: 6px; }
+.logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 8px; border-radius: 8px; }
 
 /* ---------- the app frame ---------- */
 
@@ -120,7 +120,7 @@ a { color: inherit; text-decoration: none; }
 .searchpill {
   display: flex; align-items: center; gap: 10px;
   background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
-  padding: 6px 6px 6px 19px;
+  padding: 4px 4px 4px 20px;
   box-shadow: 0 0 0 3px var(--ring-peach), 0 8px 18px rgba(0, 0, 0, .34);
 }
 .searchpill span { flex: 1; text-align: left; color: var(--muted2); font-size: 14.5px; font-weight: 500; }
@@ -130,11 +130,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* their module chrome: pill section label + the per-module personalisation button */
-.mod { padding: 18px 14px 0; }
-.mhead { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+.mod { padding: 16px 12px 0; }
+.mhead { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .mlabel {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--card2); border-radius: 999px; padding: 6px 14px;
+  background: var(--card2); border-radius: 999px; padding: 4px 12px;
   font-size: 13.5px; font-weight: 700;
 }
 .mlabel i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
@@ -147,7 +147,7 @@ a { color: inherit; text-decoration: none; }
 /* ⛔ the tab bar is the shell - four tabs, Home default (shell-contract.md).
    Static, not fixed: a full-page render is one tall viewport, so a fixed bar
    would float in the middle of the image (design-system.md §5) */
-.tabbar { display: flex; background: var(--card); border-top: 1px solid var(--line); padding: 9px 0 14px; margin-top: 22px; }
+.tabbar { display: flex; background: var(--card); border-top: 1px solid var(--line); padding: 8px 0 12px; margin-top: 20px; }
 .tabbar div { flex: 1; text-align: center; font-size: 11px; color: var(--muted); }
 .tabbar div .g { font-size: 19px; display: block; line-height: 1.5; }
 .tabbar div.on { color: var(--orange); }
@@ -160,7 +160,7 @@ a { color: inherit; text-decoration: none; }
 .d.bad { background: var(--bad); }
 .d.unk { background: var(--unknown); }
 
-.meter { height: 8px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 13px 0 6px; }
+.meter { height: 8px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 12px 0 4px; }
 .meter i { display: block; height: 100%; background: var(--peach); }
 .metertxt { display: flex; align-items: center; font-size: 12.5px; color: var(--muted); }
 .metertxt b { color: var(--txt); font-weight: 700; }
@@ -168,6 +168,123 @@ a { color: inherit; text-decoration: none; }
 
 .btnpeach {
   display: inline-block; background: var(--peach); color: var(--on-accent);
-  border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 700;
+  border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 700;
 }
-.chip { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: 12.5px; font-weight: 600; }
+.chip { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 600; }
+
+
+/* ---------- lifted from the screen files: every screen declared these
+   identically, so they belong here (tools/lift_shared.py) ---------- */
+
+/* 01-product-page, 02-product-subpages, 05-search, 06-food-preferences */
+.appbar { display: none; }
+/* 01-product-page, 02-product-subpages, 05-search, 06-food-preferences */
+.cols > * { min-width: 0; }
+/* 01-product-page, 02-product-subpages */
+.ident { display: block; }
+/* 01-product-page, 02-product-subpages */
+.ident .brand { color: var(--muted); font-size: 14px; }
+/* 01-product-page, 02-product-subpages */
+.ident .code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--muted); }
+/* 01-product-page, 02-product-subpages */
+.ident .photo { background: var(--card2); border: 1px solid var(--line); border-radius: var(--r); aspect-ratio: 1; overflow: hidden; margin-bottom: 16px; }
+/* 01-product-page, 02-product-subpages */
+.ident .photo img { width: 100%; height: 100%; object-fit: cover; }
+/* 01-product-page, 02-product-subpages */
+.ident .photo.empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13.5px; text-align: center; }
+/* 01-product-page, 02-product-subpages */
+.ident h1 { font-size: 27px; font-weight: 800; letter-spacing: -.6px; margin: 3px 0 1px; }
+/* 01-product-page, 02-product-subpages */
+.pill { display: inline-flex; align-items: center; gap: 4px; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 3px 10px 3px 4px; white-space: nowrap; }
+/* 01-product-page, 02-product-subpages */
+.pill b { font-size: 12.5px; font-weight: 800; border-radius: 999px; padding: 2px 8px; }
+/* 01-product-page, 02-product-subpages */
+.pill.bad { background: var(--bad-tint); color: var(--bad-soft); }
+/* 01-product-page, 02-product-subpages */
+.pill.bad b { background: var(--bad); color: var(--on-bad); }
+/* 01-product-page, 02-product-subpages */
+.pill.quiet { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 3px 10px; }
+/* 01-product-page, 02-product-subpages */
+.pill.quiet b { background: transparent; color: var(--txt); padding: 0 3px 0 0; }
+/* 01-product-page, 02-product-subpages */
+.pill.unk { background: var(--unknown-tint); color: var(--unknown-soft); }
+/* 01-product-page, 02-product-subpages */
+.pill.unk b { background: var(--unknown-fill); color: var(--on-unknown); }
+/* 04-profile, 06-food-preferences */
+.prow .t { flex: 1; min-width: 0; }
+/* 02-product-subpages, 05-search */
+.row:last-child { border-bottom: 0; }
+/* 01-product-page, 02-product-subpages */
+.scale { display: flex; gap: 3px; flex: none; }
+/* 01-product-page, 02-product-subpages */
+.scale span { width: 22px; text-align: center; font-size: 11px; font-weight: 700; padding: 3px 0; border-radius: 8px; background: var(--card2); color: var(--faint); }
+/* 01-product-page, 02-product-subpages */
+.scale span.on { border-radius: 8px; }
+/* 01-product-page, 02-product-subpages */
+.scale span.on.bad { background: var(--bad); color: var(--on-bad); }
+/* 01-product-page, 02-product-subpages */
+.scale.g7 span { width: 18px; font-size: 10px; }
+/* 01-product-page, 02-product-subpages */
+.scale.off span { opacity: .5; }
+/* 01-product-page, 02-product-subpages */
+.score { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+/* 01-product-page, 02-product-subpages */
+.score .fix { margin-top: 4px; }
+/* 01-product-page, 02-product-subpages */
+.score .lab { min-width: 0; flex: 1; }
+/* 01-product-page, 02-product-subpages */
+.score .n { display: block; font-weight: 600; font-size: 14px; }
+/* 01-product-page, 02-product-subpages */
+.score .s { display: block; color: var(--muted); font-size: 12px; }
+/* 01-product-page, 02-product-subpages */
+.score:last-of-type { border-bottom: 0; }
+/* 01-product-page, 02-product-subpages */
+.scores { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-top: 16px; }
+/* 01-product-page, 02-product-subpages */
+.sfoot { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+/* 01-product-page, 02-product-subpages */
+.sfoot .spacer { flex: 1; }
+/* 01-product-page, 02-product-subpages */
+.shead { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+/* 01-product-page, 02-product-subpages */
+.shead .spacer { flex: 1; }
+/* 01-product-page, 02-product-subpages */
+.shead h2 { font-size: 13.5px; font-weight: 700; letter-spacing: -.1px; }
+/* 01-product-page, 02-product-subpages */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; overflow-x: auto; }
+/* 01-product-page, 02-product-subpages */
+.tabs a { padding: 8px 12px; font-size: 13.5px; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none; }
+/* 01-product-page, 02-product-subpages */
+.tabs a.on { color: var(--orange); border-bottom-color: var(--orange); }
+/* 01-product-page, 02-product-subpages */
+.task { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line-softer); }
+/* 01-product-page, 02-product-subpages */
+.task .num { width: 22px; height: 22px; border-radius: 50%; background: var(--peach); color: var(--on-accent); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+/* 01-product-page, 02-product-subpages */
+.task .t { flex: 1; min-width: 0; font-size: 13.5px; }
+/* 01-product-page, 02-product-subpages */
+.task .t b { font-weight: 600; }
+/* 01-product-page, 02-product-subpages */
+.task .t i { font-style: normal; color: var(--muted); }
+/* 01-product-page, 02-product-subpages */
+.task .time { color: var(--muted); font-size: 12.5px; flex: none; }
+/* 01-product-page, 02-product-subpages */
+.task:last-child { border-bottom: 0; }
+/* 01-product-page, 02-product-subpages */
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 30px; }
+/* 01-product-page, 02-product-subpages */
+.tile > h3 { font-size: 20px; font-weight: 700; letter-spacing: -.2px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+/* 01-product-page, 02-product-subpages */
+.tilefoot { padding: 12px 24px; border-top: 1px solid var(--line); }
+/* 01-product-page, 02-product-subpages */
+.tilefoot a { color: var(--peach); font-size: 13.5px; font-weight: 600; text-decoration: none; }
+/* 01-product-page, 02-product-subpages */
+.vals .bad b, .vals b.bad { color: var(--bad-text); }
+/* 01-product-page, 02-product-subpages */
+.vals .more { color: var(--faint); }
+/* 01-product-page, 02-product-subpages */
+.vals > span { display: inline-flex; align-items: center; gap: 4px; }
+/* 01-product-page, 02-product-subpages */
+.vals b { font-weight: 600; color: var(--txt); }
+/* 01-product-page, 02-product-subpages, 03-home, 04-profile, 05-search, 06-food-preferences */
+.webbar .spacer { flex: 1; }

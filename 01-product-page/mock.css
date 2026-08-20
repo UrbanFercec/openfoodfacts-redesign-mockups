@@ -15,121 +15,43 @@
 /* ---------- shells ---------- */
 
 .webbar {
-  display: flex; align-items: center; gap: 18px;
+  display: flex; align-items: center; gap: 16px;
   padding: 16px 32px; border-bottom: 1px solid var(--line);
 }
 .webbar .logo { font-weight: 800; font-size: 19px; letter-spacing: -.3px; }
-.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 6px; border-radius: 5px; }
-.webbar .spacer { flex: 1; }
-.webbar .btn {
+.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }.webbar .btn {
   border: 1px solid var(--line); border-radius: 999px;
-  padding: 7px 15px; font-size: 13.5px; color: var(--txt); font-weight: 500;
+  padding: 8px 16px; font-size: 13.5px; color: var(--txt); font-weight: 500;
 }
-
-.appbar { display: none; }
-
 /* ---------- page ---------- */
 
-.wrap { max-width: 1180px; margin: 0 auto; padding: 26px 32px 46px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; }
 .cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
-.cols > * { min-width: 0; }
-
-/* ---------- identity ---------- */
-
-.ident { display: block; }
-.ident .photo {
-  background: var(--card2); border: 1px solid var(--line); border-radius: var(--r);
-  aspect-ratio: 1; overflow: hidden; margin-bottom: 16px;
-}
-.ident .photo img { width: 100%; height: 100%; object-fit: cover; }
-.ident .photo.empty {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px; color: var(--muted); font-size: 13.5px; text-align: center;
-}
-.ident .code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--muted); }
-.ident h1 { font-size: 27px; font-weight: 800; letter-spacing: -.6px; margin: 3px 0 1px; }
-.ident .brand { color: var(--muted); font-size: 14px; }
-
-/* ---------- the preferences card (Jannes's score rows, with the
-     heading, the % badge and the preferences footer folded in) ---------- */
-
-.scores { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-top: 18px; }
-
-.shead { display: flex; align-items: center; gap: 10px; padding: 12px 15px; border-bottom: 1px solid var(--line); }
-.shead h2 { font-size: 13.5px; font-weight: 700; letter-spacing: -.1px; }
-.shead .spacer { flex: 1; }
-
-.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 3px 10px 3px 4px; white-space: nowrap; }
-.pill b { font-size: 12.5px; font-weight: 800; border-radius: 999px; padding: 2px 7px; }
-.pill.bad   { background: var(--bad-tint);  color: var(--bad-soft); }
-.pill.bad b { background: var(--bad); color: var(--on-bad); }
-.pill.unk   { background: var(--unknown-tint); color: var(--unknown-soft); }
-.pill.unk b { background: var(--unknown-fill); color: var(--on-unknown); }
-/* .quiet = the same badge without the filled background. Added 2026-08-17: the red
+/* ---------- identity ---------- *//* ---------- the preferences card (Jannes's score rows, with the
+     heading, the % badge and the preferences footer folded in) ---------- *//* .quiet = the same badge without the filled background. Added 2026-08-17: the red
    fill made the preferences card the loudest thing on the page, and Stephane read
-   the Health card as the natural first stop. Outline, so Health wins the eye. */
-.pill.quiet   { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 3px 11px; }
-.pill.quiet b { background: transparent; color: var(--txt); padding: 0 3px 0 0; }
-
-.score { display: flex; align-items: center; gap: 10px; padding: 11px 15px; border-bottom: 1px solid var(--line); }
-.score:last-of-type { border-bottom: 0; }
-.score .lab { min-width: 0; flex: 1; }
-.score .n { display: block; font-weight: 600; font-size: 14px; }
-.score .s { display: block; color: var(--muted); font-size: 12px; }
-
-.scale { display: flex; gap: 3px; flex: none; }
-.scale span {
-  width: 22px; text-align: center; font-size: 11px; font-weight: 700;
-  padding: 3px 0; border-radius: 5px; background: var(--card2); color: var(--faint);
-}
-.scale.g7 span { width: 18px; font-size: 10px; }
-.scale span.on { border-radius: 8px; }
-.scale span.on.bad { background: var(--bad); color: var(--on-bad); }
-.scale.off span { opacity: .5; }
-
-.sfoot { display: flex; align-items: center; gap: 10px; padding: 10px 15px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
-.sfoot .spacer { flex: 1; }
-.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
+   the Health card as the natural first stop. Outline, so Health wins the eye. */.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
 .toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--on-accent); }
-.chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--txt); font-weight: 500; white-space: nowrap; }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--txt); font-weight: 500; white-space: nowrap; }
 
 .fix {
   display: inline-block; font-size: 12px; font-weight: 600;
   color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 3px 10px;
 }
-.score .fix { margin-top: 6px; }
-
 /* ---------- tab strip.
      The tabs are SERVER OUTPUT: `root` returns health_card, environment_card,
-     report_problem_card, product_card (design-constraints.md 5). ---------- */
-
-.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; overflow-x: auto; }
-.tabs a {
-  padding: 9px 14px; font-size: 13.5px; font-weight: 600; color: var(--muted);
-  border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none;
-}
-.tabs a.on { color: var(--orange); border-bottom-color: var(--orange); }
-
-/* ---------- condensed overview tiles.
+     report_problem_card, product_card (design-constraints.md 5). ---------- *//* ---------- condensed overview tiles.
      Spacing loosened 2026-08-17 (Stephane: "not enough white breathing space,
      images, icons... no clear path for my eyes"). Same tiles, same order, same
-     fields - only rhythm and hierarchy moved. ---------- */
-
-.tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 30px; }
-.tile > h3 { font-size: 20px; font-weight: 700; letter-spacing: -.2px; padding: 18px 24px; border-bottom: 1px solid var(--line); }
-
-.grp { padding: 18px 24px; border-bottom: 1px solid var(--line-soft); }
+     fields - only rhythm and hierarchy moved. ---------- */.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
 .grp:last-of-type { border-bottom: 0; }
 /* the group name steps back so the values are the loudest thing in the group */
-.grp .sub { font-size: 13px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
-.grp .sub em { font-style: normal; text-transform: none; letter-spacing: 0; font-size: 12px; font-weight: 500; margin-left: 5px; }
+.grp .sub { font-size: 13px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.grp .sub em { font-style: normal; text-transform: none; letter-spacing: 0; font-size: 12px; font-weight: 500; margin-left: 4px; }
 
-.vals { display: flex; flex-wrap: wrap; gap: 9px 24px; font-size: 14px; color: var(--muted); }
+.vals { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--muted); }
 /* DIRECT child only: a nested <span> used to inherit inline-flex + gap, which
-   turned a sentence into a second flex column (caught in a render 2026-08-17). */
-.vals > span { display: inline-flex; align-items: center; gap: 6px; }
-.vals b { font-weight: 600; color: var(--txt); }
-/* The status dot is BACK on the overview (2026-08-17 -> 2026-08-18, Stephane:
+   turned a sentence into a second flex column (caught in a render 2026-08-17). *//* The status dot is BACK on the overview (2026-08-17 -> 2026-08-18, Stephane:
    "here the dots were useful I think (e.g. the green one for salt)", clarified as
    "remove dots if we display icons that give the same info"). The overview rows
    have no icon, and the value colour only ever showed bad/unknown - so grade "a"
@@ -141,43 +63,21 @@
 .vals .dot.good { background: var(--good); }
 .vals .dot.warn { background: var(--orange); }
 .vals .dot.bad { background: var(--bad); }
-.vals .dot.unk { background: var(--unknown); }
-.vals .bad b, .vals b.bad { color: var(--bad-text); }
-.vals .unk b, .vals b.unk { color: var(--unknown); }
-.vals .more { color: var(--faint); }
-
+.vals .dot.unk { background: var(--unknown); }.vals .unk b, .vals b.unk { color: var(--unknown); }
 /* ---------- tile hero - one server icon per tile, at a readable size.
      This is the "images, icons" half of his note, and it costs no new asset:
      the src is the attribute's own icon_url. The Nutri-Score badge is ~2.4:1 and
      the Green-Score one is square, so pin the HEIGHT and let width follow. ---------- */
 
-.hero { display: flex; align-items: center; gap: 18px; padding: 20px 24px; border-bottom: 1px solid var(--line-soft); }
+.hero { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--line-soft); }
 .hero img { height: 58px; width: auto; max-width: 140px; flex: none; object-fit: contain; }
 .hero .h { flex: 1; min-width: 0; }
 .hero .h b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.2px; }
 .hero .h i { font-style: normal; display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
-.hero .h .fix { margin-top: 9px; }
-.hero .scale { align-self: center; }
+.hero .h .fix { margin-top: 8px; }
+.hero .scale { align-self: center; }/* ---------- contribution ---------- */
 
-.tilefoot { padding: 14px 24px; border-top: 1px solid var(--line); }
-.tilefoot a { color: var(--peach); font-size: 13.5px; font-weight: 600; text-decoration: none; }
-
-/* ---------- contribution ---------- */
-
-.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }
-.meter i { display: block; height: 100%; background: var(--peach); }
-.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
-.metertxt .spacer { flex: 1; }
-
-.task { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid var(--line-softer); }
-.task:last-child { border-bottom: 0; }
-.task .num { width: 22px; height: 22px; border-radius: 50%; background: var(--peach); color: var(--on-accent); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
-.task .t { flex: 1; min-width: 0; font-size: 13.5px; }
-.task .t b { font-weight: 600; }
-.task .t i { font-style: normal; color: var(--muted); }
-.task .time { color: var(--muted); font-size: 12.5px; flex: none; }
-
-/* .pair (Prices + Category side by side) was dropped 2026-08-17. Two half-width
+.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }/* .pair (Prices + Category side by side) was dropped 2026-08-17. Two half-width
    cards next to five full-width ones was the densest row on the page and the one
    place the eye had to choose a direction. Both are full-width tiles now. */
 
@@ -187,13 +87,13 @@
   .webbar { display: none; }
 
   .appbar {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
   }
   .appbar .ico { font-size: 19px; color: var(--txt); }
   .appbar .ttl { font-weight: 700; font-size: 16px; flex: 1; }
 
-  .wrap { padding: 14px 14px 20px; }
+  .wrap { padding: 12px 12px 20px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
 
   /* his 2 Aug mobile: square thumbnail on the left, identity on the right */
@@ -206,14 +106,14 @@
   .scale span { width: 24px; }
   .scale.g7 span { width: 20px; }
 
-  .tabs { margin: 0 -14px 16px; padding: 0 8px; }
-  .tabs a { padding: 9px 11px; font-size: 13px; }
+  .tabs { margin: 0 -12px 16px; padding: 0 8px; }
+  .tabs a { padding: 8px 10px; font-size: 13px; }
 
   .tile > h3 { font-size: 18px; padding: 16px; }
-  .grp { padding: 15px 16px; }
-  .tilefoot { padding: 13px 16px; }
+  .grp { padding: 16px 16px; }
+  .tilefoot { padding: 12px 16px; }
 
-  .hero { padding: 16px; gap: 14px; }
+  .hero { padding: 16px; gap: 12px; }
   .hero img { height: 48px; width: auto; max-width: 118px; }
   .hero .h b { font-size: 17px; }
   /* 412 cannot hold icon + verdict + a 7-cell scale on one line, and the scale is
@@ -245,15 +145,15 @@
 }
 
 @media (min-width: 1100px) {
-  .wrap { max-width: 1320px; padding: 36px 44px 64px; }
+  .wrap { max-width: 1320px; padding: 36px 40px 64px; }
   .cols { grid-template-columns: 400px 1fr; gap: 36px; }
   .tabs { margin-bottom: 30px; }
   .tile { margin-bottom: 40px; }
   .tile > h3 { padding: 24px 30px; }
   .grp { padding: 24px 30px; }
-  .hero { padding: 28px 30px; gap: 24px; }
+  .hero { padding: 30px 30px; gap: 24px; }
   .tilefoot { padding: 20px 30px; }
-  .vals { gap: 13px 30px; font-size: 14.5px; }
+  .vals { gap: 12px 30px; font-size: 14.5px; }
 }
 
 /* ================= item 3, MOBILE ONLY (Stephane, 2026-08-17 14:23 + 14:25) =======

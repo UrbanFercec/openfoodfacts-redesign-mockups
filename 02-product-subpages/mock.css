@@ -15,151 +15,50 @@
 /* ---------- shells ---------- */
 
 .webbar {
-  display: flex; align-items: center; gap: 18px;
+  display: flex; align-items: center; gap: 16px;
   padding: 16px 32px; border-bottom: 1px solid var(--line);
 }
 .webbar .logo { font-weight: 800; font-size: 19px; letter-spacing: -.3px; }
-.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 6px; border-radius: 5px; }
-.webbar .spacer { flex: 1; }
-.webbar .btn {
+.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }.webbar .btn {
   border: 1px solid var(--line); border-radius: 999px;
-  padding: 7px 15px; font-size: 13.5px; color: var(--txt); font-weight: 500;
+  padding: 8px 16px; font-size: 13.5px; color: var(--txt); font-weight: 500;
 }
-
-.appbar { display: none; }
-
 /* ---------- page ---------- */
 
-.wrap { max-width: 1180px; margin: 0 auto; padding: 26px 32px 46px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; }
 .cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
-.cols > * { min-width: 0; }
-
-/* ---------- identity ---------- */
-
-.ident { display: block; }
-.ident .photo {
-  background: var(--card2); border: 1px solid var(--line); border-radius: var(--r);
-  aspect-ratio: 1; overflow: hidden; margin-bottom: 16px;
-}
-.ident .photo img { width: 100%; height: 100%; object-fit: cover; }
-.ident .photo.empty {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px; color: var(--muted); font-size: 13.5px; text-align: center;
-}
-.ident .code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--muted); }
-.ident h1 { font-size: 27px; font-weight: 800; letter-spacing: -.6px; margin: 3px 0 1px; }
-.ident .brand { color: var(--muted); font-size: 14px; }
-
-/* ---------- the preferences card (Jannes's score rows, with the
-     heading, the % badge and the preferences footer folded in) ---------- */
-
-.scores { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-top: 18px; }
-
-.shead { display: flex; align-items: center; gap: 10px; padding: 12px 15px; border-bottom: 1px solid var(--line); }
-.shead h2 { font-size: 13.5px; font-weight: 700; letter-spacing: -.1px; }
-.shead .spacer { flex: 1; }
-
-.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 3px 10px 3px 4px; white-space: nowrap; }
-.pill b { font-size: 12.5px; font-weight: 800; border-radius: 999px; padding: 2px 7px; }
-.pill.bad   { background: var(--bad-tint);  color: var(--bad-soft); }
-.pill.bad b { background: var(--bad); color: var(--on-bad); }
-.pill.unk   { background: var(--unknown-tint); color: var(--unknown-soft); }
-.pill.unk b { background: var(--unknown-fill); color: var(--on-unknown); }
-/* .quiet = the badge without the filled background (2026-08-17). The rail is on
-   every tab, so it has to match the overview exactly. */
-.pill.quiet   { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 3px 11px; }
-.pill.quiet b { background: transparent; color: var(--txt); padding: 0 3px 0 0; }
-
-.score { display: flex; align-items: center; gap: 10px; padding: 11px 15px; border-bottom: 1px solid var(--line); }
-.score:last-of-type { border-bottom: 0; }
-.score .lab { min-width: 0; flex: 1; }
-.score .n { display: block; font-weight: 600; font-size: 14px; }
-.score .s { display: block; color: var(--muted); font-size: 12px; }
-
-.scale { display: flex; gap: 3px; flex: none; }
-.scale span {
-  width: 22px; text-align: center; font-size: 11px; font-weight: 700;
-  padding: 3px 0; border-radius: 5px; background: var(--card2); color: var(--faint);
-}
-.scale.g7 span { width: 18px; font-size: 10px; }
-.scale span.on { border-radius: 8px; }
-.scale span.on.bad { background: var(--bad); color: var(--on-bad); }
-.scale span.on.ok  { background: var(--orange); color: var(--on-warm); }
-.scale.off span { opacity: .5; }
-
-.sfoot { display: flex; align-items: center; gap: 10px; padding: 10px 15px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
-.sfoot .spacer { flex: 1; }
-.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
+/* ---------- identity ---------- *//* ---------- the preferences card (Jannes's score rows, with the
+     heading, the % badge and the preferences footer folded in) ---------- *//* .quiet = the badge without the filled background (2026-08-17). The rail is on
+   every tab, so it has to match the overview exactly. */.scale span.on.ok  { background: var(--orange); color: var(--on-warm); }.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
 .toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--on-accent); }
-.chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--txt); font-weight: 500; white-space: nowrap; }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--txt); font-weight: 500; white-space: nowrap; }
 
 .fix {
   display: inline-block; font-size: 12px; font-weight: 600;
   color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 3px 10px;
 }
-.score .fix { margin-top: 6px; }
-
-/* ---------- condensed overview tiles ---------- */
-
-.tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 30px; }
-.tile > h3 { font-size: 20px; font-weight: 700; letter-spacing: -.2px; padding: 18px 24px; border-bottom: 1px solid var(--line); }
-
-.grp { padding: 18px 24px; border-bottom: 1px solid var(--line-soft); }
+/* ---------- condensed overview tiles ---------- */.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
 .grp:last-of-type { border-bottom: 0; }
-.grp .sub { font-size: 14px; font-weight: 600; margin-bottom: 5px; }
-.grp .sub em { font-style: normal; color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 5px; }
+.grp .sub { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.grp .sub em { font-style: normal; color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 4px; }
 
-.vals { display: flex; flex-wrap: wrap; gap: 5px 18px; font-size: 13.5px; color: var(--muted); }
+.vals { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px; color: var(--muted); }
 /* DIRECT child only: a nested <span> used to inherit inline-flex + gap, which
-   turned a sentence into a second flex column (caught in a render 2026-08-17). */
-.vals > span { display: inline-flex; align-items: center; gap: 6px; }
-.vals b { font-weight: 600; color: var(--txt); }
-.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+   turned a sentence into a second flex column (caught in a render 2026-08-17). */.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .vals .d.good { background: var(--good); }
 .vals .d.bad { background: var(--bad); }
-.vals .d.unk { background: var(--unknown); }
-.vals .bad b, .vals b.bad { color: var(--bad-text); }
-.vals .more { color: var(--faint); }
+.vals .d.unk { background: var(--unknown); }/* ---------- contribution ---------- */
 
-.tilefoot { padding: 14px 24px; border-top: 1px solid var(--line); }
-.tilefoot a { color: var(--peach); font-size: 13.5px; font-weight: 600; text-decoration: none; }
-
-/* ---------- contribution ---------- */
-
-.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }
-.meter i { display: block; height: 100%; background: var(--peach); }
-.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
-.metertxt .spacer { flex: 1; }
-
-.task { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid var(--line-softer); }
-.task:last-child { border-bottom: 0; }
-.task .num { width: 22px; height: 22px; border-radius: 50%; background: var(--peach); color: var(--on-accent); font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
-.task .t { flex: 1; min-width: 0; font-size: 13.5px; }
-.task .t b { font-weight: 600; }
-.task .t i { font-style: normal; color: var(--muted); }
-.task .time { color: var(--muted); font-size: 12.5px; flex: none; }
-
-.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .pair .tile { margin-bottom: 0; }
 
 /* ---------- tab strip.
      The tabs are SERVER OUTPUT: `root` returns health_card, environment_card,
-     report_problem_card, product_card (design-constraints.md 5). ---------- */
-
-.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; overflow-x: auto; }
-.tabs a {
-  padding: 9px 14px; font-size: 13.5px; font-weight: 600; color: var(--muted);
-  border-bottom: 2px solid transparent; white-space: nowrap; text-decoration: none;
-}
-.tabs a.on { color: var(--orange); border-bottom-color: var(--orange); }
-
-/* ---------- expanded detail row - design-system.md 3d, verbatim ---------- */
+     report_problem_card, product_card (design-constraints.md 5). ---------- *//* ---------- expanded detail row - design-system.md 3d, verbatim ---------- */
 
 .grp > .lbl { color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin: 12px 0 4px; }
 .grp > .lbl:first-child { margin-top: 0; }
-.row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
-.row:last-child { border-bottom: 0; }
-/* The status dot was removed 2026-08-17 (Stephane, #redesign-poc): the server's
+.row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }/* The status dot was removed 2026-08-17 (Stephane, #redesign-poc): the server's
    own icon_url is drawn from the same attribute.grade, so the dot said it twice.
    Row colour now comes from the icon alone; the title still says "in high
    quantity", so no state is carried by colour only. */
@@ -183,13 +82,13 @@
    panel exists AND its body is product-specific. */
 
 .row .cv { margin-left: auto; flex: none; color: var(--peach); font-size: 12.5px; font-weight: 600; white-space: nowrap; }
-.box { background: var(--card2); border-radius: 11px; padding: 11px 13px 10px; margin: 2px 0 10px; }
+.box { background: var(--card2); border-radius: 8px; padding: 10px 12px 10px; margin: 2px 0 10px; }
 .box + .box { margin-top: -4px; }
-.box .bh { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px; margin-bottom: 7px; }
+.box .bh { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px; margin-bottom: 8px; }
 .box .bh b { color: var(--txt); }
 
 .mini { width: 100%; border-collapse: collapse; font-size: 13px; }
-.mini td { padding: 5px 0; border-top: 1px solid var(--line-strong); color: var(--muted); }
+.mini td { padding: 4px 0; border-top: 1px solid var(--line-strong); color: var(--muted); }
 .mini tr:first-child td { border-top: 0; }
 .mini td:last-child { text-align: right; color: var(--txt); font-weight: 600; white-space: nowrap; }
 .mini tr.tot td { border-top: 1px solid var(--line); color: var(--txt); font-weight: 700; }
@@ -197,8 +96,8 @@
 /* life-cycle share, one bar instead of a six-row percentage table */
 .bar { display: flex; height: 9px; border-radius: 999px; overflow: hidden; margin: 3px 0 8px; }
 .bar i { display: block; height: 100%; }
-.legend { display: flex; flex-wrap: wrap; gap: 3px 14px; font-size: 12px; color: var(--muted); }
-.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 4px; }
 .legend em { font-style: normal; width: 8px; height: 8px; border-radius: 2px; flex: none; }
 
 /* A RECOMMENDATION is not an explainer. `level: "recommendation"` is the only
@@ -206,7 +105,7 @@
    product even though its text is generic - so it is shown, never linked. */
 .row.rec {
   background: var(--bad-tint-weak); border: 1px solid var(--bad-edge);
-  border-radius: 11px; padding: 10px 12px; margin: 9px 0 2px;
+  border-radius: 8px; padding: 10px 12px; margin: 8px 0 2px;
 }
 .row.rec .txt b { color: var(--bad-soft); }
 .row.rec .txt i { color: var(--warm-soft); }
@@ -215,7 +114,7 @@
 .learn { display: block; margin-top: 10px; font-size: 12.5px; color: var(--peach); font-weight: 600; }
 
 /* a whole group collapsed into one grey line - content rule 4 */
-.rowmore { padding: 9px 0 2px; color: var(--faint); font-size: 13px; }
+.rowmore { padding: 8px 0 2px; color: var(--faint); font-size: 13px; }
 
 /* server-written disclaimer that ships inside a panel */
 .note { color: var(--muted); font-size: 12.5px; line-height: 1.5; padding: 10px 0 2px; }
@@ -227,10 +126,10 @@
 /* ---------- nutrition declaration table - kept from his build ---------- */
 
 .ntab { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.ntab th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12.5px; padding: 0 0 9px; }
+.ntab th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12.5px; padding: 0 0 8px; }
 .ntab th:last-child, .ntab td:last-child { text-align: right; }
-.ntab td { padding: 9px 0; border-top: 1px solid var(--line-soft); }
-.ntab tr.ind td:first-child { padding-left: 18px; color: var(--muted); }
+.ntab td { padding: 8px 0; border-top: 1px solid var(--line-soft); }
+.ntab tr.ind td:first-child { padding-left: 16px; color: var(--muted); }
 
 /* ================= MOBILE = read it as the app ================= */
 
@@ -238,13 +137,13 @@
   .webbar { display: none; }
 
   .appbar {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg);
   }
   .appbar .ico { font-size: 19px; color: var(--txt); }
   .appbar .ttl { font-weight: 700; font-size: 16px; flex: 1; }
 
-  .wrap { padding: 14px 14px 20px; }
+  .wrap { padding: 12px 12px 20px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
 
   /* his 2 Aug mobile: square thumbnail on the left, identity on the right */
@@ -257,17 +156,17 @@
   .scale span { width: 24px; }
   .scale.g7 span { width: 20px; }
 
-  .tabs { margin: 0 -14px 16px; padding: 0 8px; }
-  .tabs a { padding: 9px 11px; font-size: 13px; }
+  .tabs { margin: 0 -12px 16px; padding: 0 8px; }
+  .tabs a { padding: 8px 10px; font-size: 13px; }
 
   .tile > h3 { font-size: 18px; padding: 16px; }
-  .grp { padding: 15px 16px; }
+  .grp { padding: 16px 16px; }
   .row { gap: 10px; }
   .row img.ic { width: 24px; height: 24px; }
   .row .txt b { font-size: 14px; }
   .row .cv { font-size: 12px; }
-  .box { padding: 10px 11px 9px; }
-  .tilefoot { padding: 13px 16px; }
+  .box { padding: 10px 10px 8px; }
+  .tilefoot { padding: 12px 16px; }
   .pair { grid-template-columns: 1fr; gap: 0; }
   .pair .tile { margin-bottom: 20px; }
 
@@ -296,15 +195,15 @@
 }
 
 @media (min-width: 1100px) {
-  .wrap { max-width: 1320px; padding: 36px 44px 64px; }
+  .wrap { max-width: 1320px; padding: 36px 40px 64px; }
   .cols { grid-template-columns: 400px 1fr; gap: 36px; }
   .tabs { margin-bottom: 30px; }
   .tile { margin-bottom: 40px; }
   .tile > h3 { padding: 24px 30px; }
   .grp { padding: 24px 30px; }
-  .hero { padding: 28px 30px; gap: 24px; }
+  .hero { padding: 30px 30px; gap: 24px; }
   .tilefoot { padding: 20px 30px; }
-  .vals { gap: 13px 30px; font-size: 14.5px; }
+  .vals { gap: 12px 30px; font-size: 14.5px; }
 }
 
 /* ================= item 3, MOBILE ONLY (Stephane, 2026-08-17 14:23 + 14:25) =======
