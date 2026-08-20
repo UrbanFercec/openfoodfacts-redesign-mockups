@@ -288,3 +288,14 @@ a { color: inherit; text-decoration: none; }
 .vals b { font-weight: 600; color: var(--txt); }
 /* 01-product-page, 02-product-subpages, 03-home, 04-profile, 05-search, 06-food-preferences */
 .webbar .spacer { flex: 1; }
+
+/* ---------- the web shell - ONE truth, lifted out of all six screen stylesheets
+   2026-08-20 (CROSS-SCREEN-batch3.md MOVE 1, approved by Urban). `.webbar` had THREE
+   bodies and `.wrap` two, so the header of every web page was subtly different per
+   screen. Body is batch 3's (card background, 999px buttons); the logo keeps 01/02's
+   weight, because a wordmark is bold and those are the two most-reviewed screens.
+   ⛔ A screen overrides only what its design genuinely needs - see 03-home. ---------- */
+.webbar { display: flex; align-items: center; gap: 16px; padding: 12px 32px; background: var(--card); border-bottom: 1px solid var(--line); }
+.webbar .logo { font-weight: 800; font-size: 19px; letter-spacing: -.3px; }
+.webbar .btn { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--muted2); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; }

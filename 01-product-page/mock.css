@@ -13,19 +13,8 @@
 @import url('../shared/mock.css');
 
 /* ---------- shells ---------- */
-
-.webbar {
-  display: flex; align-items: center; gap: 16px;
-  padding: 16px 32px; border-bottom: 1px solid var(--line);
-}
-.webbar .logo { font-weight: 800; font-size: 19px; letter-spacing: -.3px; }
-.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }.webbar .btn {
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 8px 16px; font-size: 13.5px; color: var(--txt); font-weight: 500;
-}
+.webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }
 /* ---------- page ---------- */
-
-.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; }
 .cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
 /* ---------- identity ---------- *//* ---------- the preferences card (Jannes's score rows, with the
      heading, the % badge and the preferences footer folded in) ---------- *//* .quiet = the same badge without the filled background. Added 2026-08-17: the red
@@ -64,18 +53,18 @@
 .vals .dot.warn { background: var(--orange); }
 .vals .dot.bad { background: var(--bad); }
 .vals .dot.unk { background: var(--unknown); }.vals .unk b, .vals b.unk { color: var(--unknown); }
-/* ---------- tile hero - one server icon per tile, at a readable size.
+/* ---------- tile tilehead - one server icon per tile, at a readable size.
      This is the "images, icons" half of his note, and it costs no new asset:
      the src is the attribute's own icon_url. The Nutri-Score badge is ~2.4:1 and
      the Green-Score one is square, so pin the HEIGHT and let width follow. ---------- */
 
-.hero { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--line-soft); }
-.hero img { height: 58px; width: auto; max-width: 140px; flex: none; object-fit: contain; }
-.hero .h { flex: 1; min-width: 0; }
-.hero .h b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.2px; }
-.hero .h i { font-style: normal; display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
-.hero .h .fix { margin-top: 8px; }
-.hero .scale { align-self: center; }/* ---------- contribution ---------- */
+.tilehead { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--line-soft); }
+.tilehead img { height: 58px; width: auto; max-width: 140px; flex: none; object-fit: contain; }
+.tilehead .h { flex: 1; min-width: 0; }
+.tilehead .h b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.2px; }
+.tilehead .h i { font-style: normal; display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.tilehead .h .fix { margin-top: 8px; }
+.tilehead .scale { align-self: center; }/* ---------- contribution ---------- */
 
 .meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }/* .pair (Prices + Category side by side) was dropped 2026-08-17. Two half-width
    cards next to five full-width ones was the densest row on the page and the one
@@ -113,12 +102,12 @@
   .grp { padding: 16px 16px; }
   .tilefoot { padding: 12px 16px; }
 
-  .hero { padding: 16px; gap: 12px; }
-  .hero img { height: 48px; width: auto; max-width: 118px; }
-  .hero .h b { font-size: 17px; }
+  .tilehead { padding: 16px; gap: 12px; }
+  .tilehead img { height: 48px; width: auto; max-width: 118px; }
+  .tilehead .h b { font-size: 17px; }
   /* 412 cannot hold icon + verdict + a 7-cell scale on one line, and the scale is
      already in the score card two blocks above. Drop it here, keep it on web. */
-  .hero .scale { display: none; }
+  .tilehead .scale { display: none; }
 
 }
 
@@ -151,7 +140,7 @@
   .tile { margin-bottom: 40px; }
   .tile > h3 { padding: 24px 30px; }
   .grp { padding: 24px 30px; }
-  .hero { padding: 30px 30px; gap: 24px; }
+  .tilehead { padding: 30px 30px; gap: 24px; }
   .tilefoot { padding: 20px 30px; }
   .vals { gap: 12px 30px; font-size: 14.5px; }
 }

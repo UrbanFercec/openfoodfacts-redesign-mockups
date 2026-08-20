@@ -10,15 +10,6 @@
 @import url('../shared/mock.css');
 
 /* ---------- shell: same skeleton as 01/05, so the screens match ---------- */
-
-.webbar {
-  display: flex; align-items: center; gap: 16px;
-  padding: 12px 32px; background: var(--card); border-bottom: 1px solid var(--line);
-}
-.webbar .logo { font-size: 19px; }.webbar .btn {
-  border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px;
-  font-size: 13px; font-weight: 600; color: var(--muted2);
-}
 .webbar .field {
   display: flex; align-items: center; gap: 10px; min-width: 0; width: 430px;
   background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
@@ -37,8 +28,6 @@
    (food_preferences_page.dart: `_controller.progress == 1 ? null : FAProgressBar`) */
 .appbar .bar { height: 6px; border-radius: 999px; background: var(--card2); overflow: hidden; }
 .appbar .bar i { display: block; height: 100%; background: var(--orange); }
-
-.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; }
 
 /* three children, not two: the wizard's nav bar has to be the LAST thing at 412 (it is a bottom
    bar in the shipped app), and the preview has to be the last thing before it. Placing the nav
