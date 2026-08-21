@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan - the barcode is not in the database</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="cam">
+    <div class="chips">
+      <a class="chip" href="scan-default.html">Clear</a>
+      <span class="spacer"></span>
+      <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+    </div>
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
+    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
+  </div>
+
+  <div class="cards">
+    <!-- ⛔ ALSO NEVER CAPTURED, in either recording. Every string is shipped
+         (`carousel_unknown_product_*`), including the underline: the .arb value is
+         "You've found __the rare gem!__". The barcode is a real 404 - the ISBN of a book,
+         evidence/scanlists-not-found-isbn.json, HTTP 404 / status 0 / "product not found". -->
+    <div class="scard">
+      <div class="hd">
+        <i></i>
+        <h2>Unknown product</h2>
+        <span class="spacer"></span>
+        <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
+      </div>
+      <div class="bd">
+        <div class="msg">
+          <h3>Congratulations!<br>You've found <u>the rare gem!</u></h3>
+          <p>Our collaborative database contains more than <b>3 million products</b>, but this barcode doesn't exist:</p>
+          <span class="bar">9780140328721</span>
+          <a class="btnpeach todo" title="Product creation is family 9, batch 6">Add this product</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="peek">
+      <div class="top"><i></i>Our application needs you!</div>
+      <div class="bd">
+        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
+        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
+        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <a href="../03-home/home-app.html"><span class="g">&#9750;</span>Home</a>
+    <a class="on"><span class="g">&#9678;</span>Scan</a>
+    <a href="../08-lists/lists-history.html"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-in.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>

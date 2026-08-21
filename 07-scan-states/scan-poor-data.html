@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan - the product with poor data</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="cam">
+    <div class="chips">
+      <a class="chip" href="scan-default.html">Clear</a>
+      <span class="spacer"></span>
+      <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+    </div>
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
+    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
+  </div>
+
+  <div class="cards">
+    <!-- ⭐ THE CARD THEIR OWN ROADMAP COMPLAINS ABOUT. smooth-app/CONTRIBUTING.md §Next:
+         "Improve the scan experience when Nutri-Score and Eco-Score are not present (some
+         people don't click on the card even if fully unhelpful)". The shipped card stacks
+         two grey pills and a "Tap to see more info…" footer, so the only thing it offers is
+         a tap into more nothing.
+
+         CHANGED: the two honest server sentences stay exactly as they are, and under them
+         the card says what would fix it, ranked, with the shipped action labels. No % badge:
+         the shipped helper hides it for UNKNOWN_MATCH, and a 0% here would be a lie about a
+         product nobody has measured. -->
+    <div class="scard">
+      <div class="hd">
+        <i></i>
+        <span class="code">3800205872962</span>
+        <span class="spacer"></span>
+        <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
+      </div>
+      <div class="bd">
+        <div class="pident">
+          <div class="thumb"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.200.jpg" alt=""></div>
+          <div class="t">
+            <div class="nm">Bruschette chips pizza</div>
+            <div class="sub">Maretti &middot; 150 g</div>
+            <div class="sub">70% complete</div>
+          </div>
+        </div>
+
+        <div class="srows">
+          <div class="srow2 unk">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg" alt="Nutri-Score unknown">
+            <span class="t"><b>Nutri-Score unknown</b><i>Missing data to compute the Nutri-Score</i></span>
+          </div>
+          <div class="srow2 unk">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg" alt="Green-Score not computed">
+            <span class="t"><b>Green-Score not computed</b><i>Missing a precise category</i></span>
+          </div>
+          <div class="srow2">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+            <span class="t"><b>Ultra-processed foods</b><i>8 ultra-processing markers</i></span>
+          </div>
+        </div>
+
+        <div class="fixes">
+          <div class="lbl">WHAT IS MISSING</div>
+          <div class="task">
+            <span class="num">1</span>
+            <span class="t"><b>Select a more precise category</b> <i>unlocks the Green-Score</i></span>
+            <span class="time">10 s</span>
+          </div>
+          <div class="task">
+            <span class="num">2</span>
+            <span class="t"><b>Add missing nutrition facts</b> <i>unlocks the Nutri-Score</i></span>
+            <span class="time">30 s</span>
+          </div>
+        </div>
+      </div>
+      <a class="ft todo" title="The product page is drawn for Nutella only, not for this barcode">
+        <span>Tap to see more info&hellip;</span>
+        <span class="spacer"></span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+    <div class="peek">
+      <div class="top"><i></i>Our application needs you!</div>
+      <div class="bd">
+        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
+        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
+        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <a href="../03-home/home-app.html"><span class="g">&#9750;</span>Home</a>
+    <a class="on"><span class="g">&#9678;</span>Scan</a>
+    <a href="../08-lists/lists-history.html"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-in.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>
