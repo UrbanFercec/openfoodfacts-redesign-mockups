@@ -6,42 +6,42 @@
 <title>Scan - the product with poor data</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
 
-<div class="app">
+<div class="app full">
 
-  <div class="cam">
-    <div class="chips">
+  <div class="scan">
+    <div class="ctop">
       <a class="chip" href="scan-default.html">Clear</a>
-      <span class="spacer"></span>
       <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+      <span class="spacer"></span>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
 
-  <div class="cards">
-    <!-- ⭐ THE CARD THEIR OWN ROADMAP COMPLAINS ABOUT. smooth-app/CONTRIBUTING.md §Next:
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
+    <!-- ⭐ THE SHEET THEIR OWN ROADMAP COMPLAINS ABOUT. smooth-app/CONTRIBUTING.md §Next:
          "Improve the scan experience when Nutri-Score and Eco-Score are not present (some
-         people don't click on the card even if fully unhelpful)". The shipped card stacks
-         two grey pills and a "Tap to see more info…" footer, so the only thing it offers is
-         a tap into more nothing.
+         people don't click on the card even if fully unhelpful)". The shipped card stacks two
+         grey pills and a "Tap to see more info…" footer, so the only thing it offers is a tap
+         into more nothing.
 
-         CHANGED: the two honest server sentences stay exactly as they are, and under them
-         the card says what would fix it, ranked, with the shipped action labels. No % badge:
-         the shipped helper hides it for UNKNOWN_MATCH, and a 0% here would be a lie about a
-         product nobody has measured. -->
-    <div class="scard">
-      <div class="hd">
-        <i></i>
-        <span class="code">3800205872962</span>
-        <span class="spacer"></span>
+         KEPT through the reshape, unchanged: the two honest server sentences, and under them
+         what would fix it, ranked, with the shipped action labels. No % badge - the shipped
+         helper hides it for UNKNOWN_MATCH, and a 0% here would be a lie about a product nobody
+         has measured.
+         Drawn expanded rather than at peek height, because the ranked fixes ARE the state. -->
+    <div class="csheet">
+      <div class="grab">
+        <span class="bar"></span>
         <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
-      <div class="bd">
+      <div class="cbody">
         <div class="pident">
           <div class="thumb"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.200.jpg" alt=""></div>
           <div class="t">
@@ -80,20 +80,11 @@
           </div>
         </div>
       </div>
-      <a class="ft todo" title="The product page is drawn for Nutella only, not for this barcode">
+      <a class="cfoot todo" title="The product page is drawn for Nutella only, not for this barcode">
         <span>Tap to see more info&hellip;</span>
         <span class="spacer"></span>
         <span>&rarr;</span>
       </a>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
-      </div>
     </div>
   </div>
 

@@ -3,39 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scan - a product with full data</title>
+<title>Scan - a product with full data, the peek</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
 
-<div class="app">
+<div class="app full">
 
-  <div class="cam">
-    <div class="chips">
+  <div class="scan">
+    <div class="ctop">
       <a class="chip" href="scan-default.html">Clear</a>
-      <span class="spacer"></span>
       <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+      <span class="spacer"></span>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
 
-  <div class="cards">
-    <!-- ⛔ THE STATE NOBODY HAS A PICTURE OF. Neither device recording caught a full-data
-         scan card, so this one is drawn from the shipped card's structure plus live data:
-         wasa Fibres 7300400481588, 78% / VERY_GOOD_MATCH computed with OFF's own algorithm
-         (screens/05-search/match.py, their weights and thresholds, not ours). -->
-    <div class="scard">
-      <div class="hd">
-        <i></i>
-        <span class="code">7300400481588</span>
-        <span class="spacer"></span>
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
+    <!-- ⭐ THE PEEK. This is the height their `Scanner carte 3` and their artboard 23 draw: who it
+         is, how well it matches you, and the one verdict that matters. Everything else is one drag
+         away (scan-found-open.html), which is what their `Glisser vers le haut pour en savoir
+         plus` promises and what `expandable_camera.dart` already implements.
+         ⛔ THE STATE NOBODY HAS A PICTURE OF - neither device recording caught a full-data card,
+         so the content is the shipped card's structure plus live data: wasa Fibres 7300400481588,
+         78% / VERY_GOOD_MATCH computed with OFF's own algorithm (screens/05-search/match.py). -->
+    <div class="csheet">
+      <div class="swipe"><span>&#9650;</span></div>
+      <div class="grab">
+        <span class="bar"></span>
         <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
-      <div class="bd">
+      <div class="cbody">
         <div class="pident">
           <div class="thumb"><img src="https://images.openfoodfacts.org/images/products/730/040/048/1588/front_en.269.200.jpg" alt=""></div>
           <div class="t">
@@ -50,29 +53,7 @@
             <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
             <span class="t"><b>Nutri-Score A</b><i>Very good nutritional quality</i></span>
           </div>
-          <div class="srow2">
-            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
-            <span class="t"><b>Green-Score A+</b><i>Very low environmental impact</i></span>
-          </div>
-          <div class="srow2">
-            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
-            <span class="t"><b>Processed foods</b></span>
-          </div>
         </div>
-      </div>
-      <a class="ft todo" title="The product page is drawn for Nutella only, not for this barcode">
-        <span>Tap to see more info&hellip;</span>
-        <span class="spacer"></span>
-        <span>&rarr;</span>
-      </a>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
       </div>
     </div>
   </div>

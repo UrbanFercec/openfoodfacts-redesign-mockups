@@ -6,41 +6,28 @@
 <title>Scan - camera permission denied</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18) - which is also the only exit from this state, since there is no camera to put chrome on. -->
 
-<div class="app">
+<div class="app full">
 
-  <!-- the camera pane is replaced by the gate, exactly as `_PermissionDeniedCard` does
+  <!-- the whole video is replaced by the gate, exactly as `_PermissionDeniedCard` does
        (pages/scan/scan_page.dart:161, reached from the switch at :76-82). Every string is
        shipped: permission_photo_denied_title, _button, _message with {appName} filled in.
+       ⛔ No torch, no switch-camera, no Clear: there is no camera. The reason a full-screen
+       scanner makes this state BETTER is that the gate now gets the whole screen instead of a
+       300px pane with a search card and a donation card under it.
        CHANGED: the primary action comes FIRST in the shipped gate, above the sentence that
-       explains it (frames v2_t039) - ours puts the sentence first, because a button whose
-       reason is underneath it is a dialog pattern, not a screen. -->
-  <div class="cam gateonly">
+       explains it (frames v2_t039) - ours puts the sentence first, because a button whose reason
+       is underneath it is a dialog pattern, not a screen. -->
+  <div class="scan">
     <div class="gate">
       <h2>Allow camera use to scan barcodes</h2>
       <p>For an enhanced experience, please allow Open Food Facts to access your camera. You will be able to directly scan barcodes.</p>
-      <p><a class="btnpeach" href="scan-default.html">Allow</a></p>
-    </div>
-  </div>
-
-  <div class="cards">
-    <div class="mcard">
-      <div class="logo">open <em>FOOD</em> facts</div>
-      <div class="sub"><b>Scan</b> a barcode or<br><b>search</b> for a product</div>
-      <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
-      </div>
+      <a class="btnpeach" href="scan-default.html">Allow</a>
     </div>
   </div>
 

@@ -6,51 +6,49 @@
 <title>Scan - the barcode is not in the database</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
 
-<div class="app">
+<div class="app full">
 
-  <div class="cam">
-    <div class="chips">
+  <div class="scan">
+    <div class="ctop">
       <a class="chip" href="scan-default.html">Clear</a>
-      <span class="spacer"></span>
       <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+      <span class="spacer"></span>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
 
-  <div class="cards">
-    <!-- ⛔ ALSO NEVER CAPTURED, in either recording. Every string is shipped
-         (`carousel_unknown_product_*`), including the underline: the .arb value is
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
+    <!-- ⭐ CHECKED AGAINST THE FRAME THAT ARRIVED AFTER THIS SCREEN WAS FIRST DRAWN -
+         captures/2026-08-21-app/frames/v10_t010_scan-12-barcode-not-found.png. Every string
+         matches, header dot and circular ✕ included; every string is shipped
+         (`carousel_unknown_product_*`), including the underline, because the .arb value is
          "You've found __the rare gem!__". The barcode is a real 404 - the ISBN of a book,
-         evidence/scanlists-not-found-isbn.json, HTTP 404 / status 0 / "product not found". -->
-    <div class="scard">
-      <div class="hd">
+         evidence/scanlists-not-found-isbn.json, HTTP 404 / status 0 / "product not found".
+         ⚠️ TWO details the frame has and this does not, both deliberate and both in
+         SESSION-NOTES §CHANGED: shipped draws the barcode as ACTUAL BARS in a white card (ours
+         prints the digits in a mono pill), and its reticle is a circle with a barcode glyph
+         inside rather than their artboards' magnifier. -->
+    <div class="csheet">
+      <div class="chd">
         <i></i>
         <h2>Unknown product</h2>
         <span class="spacer"></span>
         <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
-      <div class="bd">
+      <div class="cbody">
         <div class="msg">
           <h3>Congratulations!<br>You've found <u>the rare gem!</u></h3>
           <p>Our collaborative database contains more than <b>3 million products</b>, but this barcode doesn't exist:</p>
           <span class="bar">9780140328721</span>
           <a class="btnpeach todo" title="Product creation is family 9, batch 6">Add this product</a>
         </div>
-      </div>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
       </div>
     </div>
   </div>

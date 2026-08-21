@@ -6,36 +6,40 @@
 <title>Scan - offline, the barcode could not be fetched</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
 
-<div class="app">
+<div class="app full">
 
-  <div class="cam">
-    <div class="chips">
+  <div class="scan">
+    <div class="ctop">
       <a class="chip" href="scan-default.html">Clear</a>
-      <span class="spacer"></span>
       <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+      <span class="spacer"></span>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
 
-  <div class="cards">
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
     <!-- the offline / network state, `ScanProductCardError`. All four strings shipped
          (`carousel_error_header`, `_title`, `_text_1`, `_text_2`, `_button`).
-         ⭐ Their own roadmap asks for offline scanning ("Add offline scanning", issue #18),
-         so this card is the honest version of a state they already want to remove. -->
-    <div class="scard">
-      <div class="hd">
+         CHANGED by the reshape, and it is theirs: their artboard 26 gives this one sheet a RED
+         header band while the neutral sheets keep a plain one, so the header carries the verdict
+         instead of being a label. Nothing else on the screen is red, so it reads.
+         ⭐ Their own roadmap asks for offline scanning ("Add offline scanning", issue #18), so
+         this is the honest version of a state they already want to remove. -->
+    <div class="csheet">
+      <div class="chd err">
         <i></i>
         <h2>Error!</h2>
         <span class="spacer"></span>
         <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
-      <div class="bd">
+      <div class="cbody">
         <div class="msg">
           <h3>It's a bummer!</h3>
           <p>We couldn't download information on this barcode:</p>
@@ -43,15 +47,6 @@
           <p>Please check your Internet connection or click this button:</p>
           <a class="btnpeach" href="scan-loading.html">Retry</a>
         </div>
-      </div>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
       </div>
     </div>
   </div>

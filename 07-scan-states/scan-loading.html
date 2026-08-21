@@ -6,50 +6,45 @@
 <title>Scan - a barcode was detected</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
 
-<div class="app">
+<div class="app full">
 
-  <div class="cam">
-    <div class="chips">
+  <div class="scan">
+    <div class="ctop">
       <a class="chip" href="scan-default.html">Clear</a>
-      <span class="spacer"></span>
       <span class="chip off" title="Please scan at least two products to compare them">Compare one Product</span>
+      <span class="spacer"></span>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
 
-  <div class="cards">
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
     <!-- ⛔ KEPT, deliberately: the shipped loading state brags about the database size
          (`carousel_loading_text`) and it is the only place in the app that does. A spinner
-         would have been shorter and would have thrown that away. -->
-    <div class="scard">
-      <div class="hd">
+         would have been shorter and would have thrown that away.
+         Their own artboard 22 draws exactly this as a sheet - `Code-barres detecte !` with the
+         barcode underlined in the sentence - so the container is theirs and the words are the
+         shipped English ones. -->
+    <div class="csheet">
+      <div class="chd">
         <i></i>
         <h2>Loading information...</h2>
         <span class="spacer"></span>
         <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
-      <div class="bd">
+      <div class="cbody">
         <div class="msg">
           <div class="spin"></div>
           <p>You've just scanned a product with the following barcode:</p>
           <span class="bar">3800205872962</span>
           <p>We are searching for it in our database of more than <b>3 million products!</b></p>
         </div>
-      </div>
-    </div>
-
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
       </div>
     </div>
   </div>
