@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings search - nothing matched</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- ⭐ The best-hidden good feature in the tree. `roots/preferences_root.dart:67-173` puts
+     `searchTiles` on the BASE class, so every root searches its own rows, and when nothing
+     matches, `tiles/external_search_tiles/*` route the query to the wiki, GitHub and the forum
+     instead of dead-ending (CAPTURE-FINDINGS.md F10, frames/t577).
+
+     ⛔ We keep it exactly. The one thing we add is the SECTION HEADER: shipped shows three bare
+     rows with no line saying the app found nothing, and there is no `no result` string in
+     app_en.arb at all (checked - the key does not exist). One new key, named in design-brief.md.
+     The three row titles are the shipped format string `external_search_tile_title`
+     = `Search {provider} for "{keyword}"`, filled - not authored. -->
+
+<div class="app">
+
+  <div class="sbar">
+    <a class="back" href="settings-app.html">&#8592;</a>
+    <h1>App Settings</h1>
+    <span class="ico">&#128269;</span>
+  </div>
+
+  <div class="sfield">
+    <div class="searchpill"><span>ehag</span><span class="go">&#10005;</span></div>
+  </div>
+
+  <div class="pcard2">
+    <h3>No setting matches &ldquo;ehag&rdquo;</h3>
+    <a class="setrow todo" title="External: wiki.openfoodfacts.org search">
+      <span class="pi">&#128218;</span>
+      <span class="t"><b>Search Wiki for &ldquo;ehag&rdquo;</b></span>
+      <span class="ext">&#8599;</span>
+    </a>
+    <a class="setrow todo" title="External: github.com/openfoodfacts search">
+      <span class="pi">&#128187;</span>
+      <span class="t"><b>Search GitHub for &ldquo;ehag&rdquo;</b></span>
+      <span class="ext">&#8599;</span>
+    </a>
+    <a class="setrow todo" title="External: forum.openfoodfacts.org search">
+      <span class="pi">&#128172;</span>
+      <span class="t"><b>Search Forum for &ldquo;ehag&rdquo;</b></span>
+      <span class="ext">&#8599;</span>
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
