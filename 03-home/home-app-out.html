@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - the app landing screen, SIGNED OUT</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<!-- The signed-out landing screen. Urban, 2026-08-20: the app never invites an account,
+     it only demands one after you already tried to contribute (`product_refresher.dart:27-75`,
+     26 call sites), so the one place that asks is the Profile tab's app bar
+     (`preferences_v2/preferences_page.dart:66`). This page adds ONE invitation and changes
+     nothing else: everything on Home that works without an account keeps working.
+
+     ⛔ Only two blocks differ from home-app.html, and both are marked SIGNED OUT below. -->
+
+<div class="app">
+
+  <div class="brandblock">
+    <div class="logo">open <em>FOOD</em> facts</div>
+    <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
+  </div>
+
+  <div class="scanbar">
+    <span class="glyph">||||</span>
+    <span class="t">Tap to scan a <b>barcode</b><br>and discover if it's <b>good for you</b>!</span>
+    <span class="chev">&rsaquo;</span>
+  </div>
+
+  <!-- unchanged: scan history is local, so it is the same signed in or out -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Last scanned products</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d bad"></i><b>Nutella</b></div>
+          <div class="br">Ferrero</div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/000/002/072/4696/front_en.384.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d good"></i><b>Amandes</b></div>
+          <div class="br">Alesto, Lidl</div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/405/648/921/6162/front_en.329.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d good"></i><b>High Protein Schoko Pudding</b></div>
+          <div class="br">Milbona</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNED OUT, change 1 of 2: the two counters are GONE, not zeroed.
+       Signed in this module ends with `0 products edited · 0 prices added`; signed out
+       those numbers can only ever be a personal record nobody is keeping, and printing
+       a zero invents a fact. The three action tiles stay live and stay tappable - each
+       already routes through the shipped account gate (`account_create_message` +
+       `join_us`), so nothing here is a dead end. -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Contribute</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="contrib">
+      <div class="acts">
+        <div class="act"><span class="ic y">&#129534;</span>Add prices</div>
+        <div class="act"><span class="ic g">&#127918;</span>Tap here to answer questions</div>
+        <div class="act"><span class="ic o">&#128203;</span>Complete products</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNED OUT, change 2 of 2: the ONE promo slot, in its account state.
+       That slot is not new and it is not ours: `scan_bottom_card.dart:35-60` already
+       arbitrates two cards in it - the rating prompt wins, otherwise the remote tagline
+       (which is what carries the funding meter in home-app.html) - and both are
+       dismissible through the same ✕ (`ScanBottomCardContainer.onClose`).
+       This is a THIRD case in that switch, on the throttle the shipped rating prompt
+       already uses: after 5 launches, then every 4th (`app_review.dart:12-13`). Same
+       slot means it can never collide with the rating ask, and on the other launches
+       this module is the donation card exactly as drawn in home-app.html.
+       ⛔ Every string is shipped, none is ours: `join_us`, `account_create_message`,
+       `create_account`, `sign_in` (app_en.arb:534, :530, :267, :271 - so 128 locales).
+       The art is the app's own `assets/onboarding/globe.svg`, which is the illustration
+       the shipped account dialog already uses. -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>From Open Food Facts</span>
+      <span class="spacer"></span><span class="pers">&times;</span>
+    </div>
+    <div class="tagline">
+      <div class="top">
+        <img class="art" src="https://raw.githubusercontent.com/openfoodfacts/smooth-app/develop/packages/smooth_app/assets/onboarding/globe.svg" alt="">
+        <div>
+          <h4>Join us</h4>
+          <div class="msg">Create your account and join the Open Food Facts community to help build food knowledge all over the world!</div>
+        </div>
+      </div>
+      <div class="cta">
+        <span class="chip">Sign in</span>
+        <span class="spacer"></span>
+        <span class="btnpeach">Create account</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Most scanned products</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="list">
+      <div class="lrow"><i class="d good"></i><span class="t"><b>Almonds</b><i>Alesto, Lidl</i></span><span class="n">690 scans</span></div>
+      <div class="lrow"><i class="d good"></i><span class="t"><b>cruesly m&eacute;lange de noix</b><i>Quaker</i></span><span class="n">562 scans</span></div>
+      <div class="lrow"><i class="d unk"></i><span class="t"><b>Chocolat noir - 85% cacao</b><i>Lidl, J.D. Gross</i></span><span class="n">530 scans</span></div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Categories of the moment</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="ccard"><div class="ic">&#127875;</div><b>Pumpkin</b><span>One of this month's vegetables</span></div>
+      <div class="ccard"><div class="ic">&#129388;</div><b>Spinach</b><span>A vegetable full of vitamin A</span></div>
+      <div class="ccard"><div class="ic">&#127855;</div><b>Jam</b><span>Compare the sugar per jar</span></div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Guides</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="gcard"><span class="kick">Nutri-Score</span><b>Why does Nesquik have a Nutri-Score A?</b></div>
+      <div class="gcard"><span class="kick">Green-Score</span><b>What the seven grades actually measure</b></div>
+    </div>
+  </div>
+
+  <div class="footstrip">
+    <p>Open Food Facts is an open database of <b>4,684,418 products</b>, plus the ones you will add.</p>
+    <span class="chip">Choose what appears here</span>
+  </div>
+
+  <div class="tabbar">
+    <a class="on"><span class="g">&#9750;</span>Home</a>
+    <a class="todo" title="Not drawn yet - batch 4"><span class="g">&#9678;</span>Scan</a>
+    <a class="todo" title="Not drawn yet - batch 4"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-out.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>

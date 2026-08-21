@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Product page - no data</title>
 <link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
 </head>
 <body>
 
@@ -89,9 +90,9 @@
            hard-codes For me / Prices / Folksonomy around the server ones. -->
       <nav class="tabs">
         <a class="on">Overview</a>
-        <a>Health</a>
-        <a>Environment</a>
-        <a>Contribute</a>
+        <a href="../02-product-subpages/v2-health.html">Health</a>
+        <a href="../02-product-subpages/v2-environment.html">Environment</a>
+        <a class="todo" title="Not drawn yet - family 1, Contribute pane">Contribute</a>
       </nav>
 
       <!-- the dataless product opens with the route out of it, not with
@@ -109,7 +110,7 @@
           <div class="task"><span class="num">3</span><span class="t"><b>Photograph the ingredients list</b> <i>unlocks allergens, additives and NOVA</i></span><span class="time">30 s</span></div>
           <div class="task"><span class="num">4</span><span class="t"><b>Add a precise category</b> <i>unlocks the Green-Score</i></span><span class="time">10 s</span></div>
         </div>
-        <div class="tilefoot"><a>Start with the front photo</a></div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">Start with the front photo</a></div>
       </div>
 
       <!-- the tilehead carries the UNKNOWN icon the server actually returns for this
@@ -136,7 +137,7 @@
           <div class="sub">Ingredient analysis</div>
           <div class="vals"><span>Vegan, vegetarian and palm oil <b class="unk">all unknown</b></span></div>
         </div>
-        <div class="tilefoot"><a>All health details</a></div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-health.html">All health details</a></div>
       </div>
 
       <div class="tile paned">
@@ -147,7 +148,7 @@
             <span class="fix">Add a category</span></span>
           <span class="scale g7 off"><span>A+</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></span>
         </div>
-        <div class="tilefoot"><a>All environmental details</a></div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-environment.html">All environmental details</a></div>
       </div>
 
       <div class="tile">

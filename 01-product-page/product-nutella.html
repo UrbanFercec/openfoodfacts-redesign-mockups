@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Product page - Nutella</title>
 <link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
 </head>
 <body>
 
@@ -80,9 +81,9 @@
            hard-codes For me / Prices / Folksonomy around the server ones. -->
       <nav class="tabs">
         <a class="on">Overview</a>
-        <a>Health</a>
-        <a>Environment</a>
-        <a>Contribute</a>
+        <a href="../02-product-subpages/v2-health.html">Health</a>
+        <a href="../02-product-subpages/v2-environment.html">Environment</a>
+        <a class="todo" title="Not drawn yet - family 1, Contribute pane">Contribute</a>
       </nav>
 
       <!-- Every tile opens on one tilehead: the attribute's own icon_url at 58px, its
@@ -121,7 +122,7 @@
             <span><span class="dot warn"></span><b>2 additives</b></span>
           </div>
         </div>
-        <div class="tilefoot"><a>All health details</a></div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-health.html">All health details</a></div>
       </div>
 
       <div class="tile paned">
@@ -149,7 +150,7 @@
           <!-- one flex child, so the sentence wraps as text instead of as a second column -->
           <div class="vals"><span><span><b class="bad">Contains palm oil</b> &middot; Drives deforestation and threatens species such as the orangutan</span></span></div>
         </div>
-        <div class="tilefoot"><a>All environmental details</a></div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-environment.html">All environmental details</a></div>
       </div>
 
       <div class="tile">
@@ -158,7 +159,7 @@
           <div class="sub">User reported prices</div>
           <div class="vals"><span><b>6 prices</b> &euro;3.00 - &euro;299.00</span></div>
         </div>
-        <div class="tilefoot"><a>All price details</a></div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All price details</a></div>
       </div>
 
       <div class="tile">
@@ -171,7 +172,7 @@
           <div class="sub">Labels</div>
           <div class="vals"><span><b>No gluten</b></span></div>
         </div>
-        <div class="tilefoot"><a>All categories and labels</a></div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All categories and labels</a></div>
       </div>
 
       <div class="tile">
@@ -186,7 +187,7 @@
           <div class="task"><span class="num">1</span><span class="t"><b>Add a precise category</b> <i>unlocks the Green-Score</i></span><span class="time">10 s</span></div>
           <div class="task"><span class="num">2</span><span class="t"><b>Add the per-serving nutrition</b> <i>serving size is missing</i></span><span class="time">30 s</span></div>
         </div>
-        <div class="tilefoot"><a>All contribution details</a></div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All contribution details</a></div>
       </div>
 
     </main>
