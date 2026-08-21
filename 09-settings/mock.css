@@ -163,7 +163,9 @@
 .bg .n { min-width: 0; }
 .bg u { text-decoration: none; display: block; font-size: 11px; font-weight: 800; letter-spacing: -.2px; }
 .bg s { text-decoration: none; display: block; font-size: 10.5px; color: var(--muted); }
-.bg.off { opacity: .45; }
+/* .45 was rendered in both polarities first: in LIGHT it takes a locked badge's grey to the edge
+   of unreadable, and a locked badge has to stay readable - the threshold on it is the whole point */
+.bg.off { opacity: .55; }
 .bg.next { border-color: var(--orange); }
 
 /* the next rung, with the real threshold and how many people are on it */
@@ -205,6 +207,8 @@
 
 .sfield { margin: 0 12px 12px; }
 .sfield .searchpill span { color: var(--txt); }
+/* ⛔ `.searchpill span { flex: 1 }` lives in shared/ and would stretch the ✕ across the field */
+.sfield .searchpill .x { flex: none; color: var(--muted); font-size: 13px; margin-right: 4px; }
 
 /* a chip row inside a row: the four contribution filters, and the five social accounts.
    Both are cases where shipped drew N destinations and the content is one list plus a filter. */
