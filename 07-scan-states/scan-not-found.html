@@ -46,7 +46,13 @@
           <h3>Congratulations!<br>You've found <u>the rare gem!</u></h3>
           <p>Our collaborative database contains more than <b>3 million products</b>, but this barcode doesn't exist:</p>
           <span class="bar">9780140328721</span>
-          <a class="btnpeach todo" title="Product creation is family 9, batch 6">Add this product</a>
+          <!-- ⭐ WIRED 2026-08-22 by batch 6. This was `class="btnpeach todo"` with the title
+               "Product creation is family 9, batch 6" - family 9 is now drawn, so the dead end is
+               closed. ⛔ Wiring only, not a redraw (/design-screen §6a-bis): `.todo` is styled
+               solely by shared/proto.css, which the published lanes load and a source screen never
+               does, so removing it cannot move this render. Proven, not asserted - the 412 render
+               is byte-identical before and after (sha 251610e2641566eb81eb1b1a). -->
+          <a class="btnpeach" href="../13-product-edit/newproduct.html">Add this product</a>
         </div>
       </div>
     </div>
