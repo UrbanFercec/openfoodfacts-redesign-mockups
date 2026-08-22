@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scan - a product with full data, the peek</title>
+<title>Scan - a product with full data</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
 <script src="../shared/proto-theme.js" defer></script>
@@ -23,20 +23,23 @@
       <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
 
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- ⭐ THE PEEK. This is the height their `Scanner carte 3` and their artboard 23 draw: who it
-         is, how well it matches you, and the one verdict that matters. Everything else is one drag
-         away (scan-found-open.html), which is what their `Glisser vers le haut pour en savoir
-         plus` promises and what `expandable_camera.dart` already implements.
+    <!-- ⭐ ONE SHEET, ONE HEIGHT. Was two pages until 2026-08-22 (a peek plus a dragged-open
+         state); Urban ruled bottom sheets are never partially open, so the peek is gone and this
+         is the whole card - identity, every criterion row, the drill-in. It is still why the
+         left/right carousel is not needed: one product at a time instead of `barcodes.length + 1`
+         pages. Rule: design-system.md §3i.
+         ⚠️ ~36% of the screen against the shipped `maxHeight: 0.35 x screen`
+         (camera_view.dart:131). The cap an implementer sets is 0.75, not 0.35, and it is a real
+         number rather than a rounding difference.
          ⛔ THE STATE NOBODY HAS A PICTURE OF - neither device recording caught a full-data card,
-         so the content is the shipped card's structure plus live data: wasa Fibres 7300400481588,
-         78% / VERY_GOOD_MATCH computed with OFF's own algorithm (screens/05-search/match.py). -->
+         so the content is the shipped card's structure plus live data: wasa Fibres
+         7300400481588, 78% / VERY_GOOD_MATCH computed with OFF's own algorithm
+         (screens/05-search/match.py). -->
     <div class="csheet">
-      <div class="swipe"><span>&#9650;</span></div>
       <div class="grab">
         <span class="bar"></span>
-        <a class="x" href="scan-default.html" title="Remove this product from the carousel">&#10005;</a>
       </div>
       <div class="cbody">
         <div class="pident">
@@ -53,8 +56,21 @@
             <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
             <span class="t"><b>Nutri-Score A</b><i>Very good nutritional quality</i></span>
           </div>
+          <div class="srow2">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+            <span class="t"><b>Green-Score A+</b><i>Very low environmental impact</i></span>
+          </div>
+          <div class="srow2">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+            <span class="t"><b>Processed foods</b></span>
+          </div>
         </div>
       </div>
+      <a class="cfoot todo" title="The product page is drawn for Nutella only, not for this barcode">
+        <span>Tap to see more info&hellip;</span>
+        <span class="spacer"></span>
+        <span>&rarr;</span>
+      </a>
     </div>
   </div>
 
