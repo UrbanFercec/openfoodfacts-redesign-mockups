@@ -1,27 +1,4 @@
-/* The settings tree (family 4b) + Contributions / My statistics. Tokens, the app frame and
-   the shared primitives come from ../shared/mock.css; only this screen's own parts here.
-
-   APP ONLY at 412. Explorer has ONE settings route (`src/routes/settings/+page.svelte`, five
-   tabs) and no equivalent of contribute / faq / legal / about / prices / labs at all, and the
-   web half of the tree is already drawn as `screens/04-profile/profile-web.html`'s settings
-   column. A web twin here would be a new destination, not a restyle.
-
-   ⛔ NO BOTTOM TAB BAR on any page in this folder. Every one of them is a pushed detail
-   screen, and design-system.md §2 puts the bar on the four tab roots only. The shipped app
-   keeps the bar here because these roots live inside `PageManager`; that is what it DOES, not
-   what we want (shell-contract.md, the precedence rule).
-
-   ⛔ Rows reuse 04-profile's `.pcard2` / `.setrow` bodies BYTE-IDENTICALLY, and `.sw` is
-   06-food-preferences' body byte-identical, so tools/lift_shared.py can fold all three into
-   shared/ at the close of the batch. Do not "improve" one copy.
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md). */
-
 @import url('../shared/mock.css');
-
-/* ---------- the settings app bar: back, title, and the search that already ships ----------
-   `preferences_v2/roots/preferences_root.dart:67-173` puts `searchTiles` on the BASE class, so
-   every root searches its own rows. It is the best-hidden good feature in the tree
-   (CAPTURE-FINDINGS.md F10) and it gets an affordance on every leaf, not just the root. */
 
 .sbar { display: flex; align-items: center; gap: 12px; padding: 16px 12px 12px; }
 .sbar .back {
@@ -35,8 +12,6 @@
   display: flex; align-items: center; justify-content: center;
   font-size: 17px; color: var(--muted2); border: 1px solid var(--line);
 }
-
-/* ---------- the row card. 04-profile's bodies, verbatim ---------- */
 
 .pcard2 { margin: 12px 12px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .pcard2 > h3 {
@@ -52,29 +27,17 @@
 .setrow .go2 { color: var(--faint); font-size: 17px; flex: none; }
 .setrow.dim .t b { color: var(--muted); }
 
-/* ---------- what this folder adds to the row ---------- */
-
-/* ⭐ A row that leaves the app says so BEFORE the tap. Shipped already does it -
-   `tiles/url_preference_tile.dart:7-39` swaps the chevron for `icons.ExternalLink` - and the
-   tree needs it more than anywhere else: 27 of its rows open a browser or an email client and
-   9 more open a sheet (api-note.md §2). Keeping the two apart is the whole navigation design. */
 .setrow .ext { color: var(--muted); font-size: 13px; flex: none; }
 .setrow .mail { color: var(--muted); font-size: 13px; flex: none; }
 
-/* a picker's current value, so the row answers its own question without being opened.
-   ⛔ The value is the SETTING, not a caption: shipped draws it as the subtitle and then has
-   nothing left for the explanation (frames/t381). */
 .setrow .val { display: block; color: var(--txt2); font-size: 12.5px; font-weight: 700; }
 
-/* the count on a contribution row. Shipped puts a `0` chip AND a per-row ↻ on four rows of
-   one screen (CAPTURE-FINDINGS.md F8); we keep the count and drop the four buttons. */
 .setrow .cnt {
   min-width: 44px; text-align: right; font-size: 16px; font-weight: 800;
   letter-spacing: -.4px; flex: none;
 }
 .setrow .cnt.zero { color: var(--faint); font-weight: 700; }
 
-/* the switch. `SmoothSwitch` already ships and the wizard already uses it */
 .sw { width: 42px; height: 26px; border-radius: 999px; background: var(--card3); flex: none; position: relative; }
 .sw::after {
   content: ''; position: absolute; top: 4px; left: 4px;
@@ -84,16 +47,10 @@
 .sw.on::after { left: 20px; background: var(--on-accent); }
 .sw.red.on { background: var(--bad); }
 
-/* the long telemetry copy is the one place a subtitle is a paragraph, not a caption.
-   ⛔ Both strings are shipped verbatim (`crash_reporting_toggle_subtitle`,
-   `send_anonymous_data_toggle_subtitle`) and a consent line is not ours to shorten. */
 .setrow.longcopy { align-items: flex-start; }
 .setrow.longcopy .pi { padding-top: 2px; }
 .setrow.longcopy .t i { font-size: 12px; line-height: 1.45; }
 .setrow.longcopy .sw { margin-top: 2px; }
-
-/* ---------- the sheets. 08-lists' bodies, verbatim: every picker in this tree is already a
-   bottom sheet (`tiles/multiple_choices_tile.dart:9-206`), so this is their pattern ---------- */
 
 .dim { position: relative; }
 .dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
@@ -105,11 +62,7 @@
 .sheet .shd h2 { font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
 .sheet .shd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
 .sheet .shd .spacer { flex: 1; }
-/* ⛔ NO ✕ - design-system.md §3i rule 2 (Urban, 2026-08-22). The grabber, swipe-down and the
-   scrim are the exits on every sheet we draw. The scrim is `.dim` above.
-   ⛔ The sheet is ONE STOP and its height is its content, capped at 75% of the screen. Every
-   sheet in this tree is a short picker so the cap never bites, but it is the number an
-   implementer sets - not the shipped `maxHeight: 0.35 x screen` from camera_view.dart:131. */
+
 .sheet .grab { display: flex; justify-content: center; padding: 10px 0 2px; }
 .sheet .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
@@ -122,14 +75,8 @@
 .srow.on { background: var(--card2); }
 .srow.on .t b { color: var(--orange); }
 
-/* the sheet's own body copy - the software-development sheet is a paragraph plus two external
-   rows plus the DEV Mode toggle, which is one of Labs' two entry points (F12) */
 .sbody { padding: 12px 20px; font-size: 13px; color: var(--muted2); line-height: 1.5; border-bottom: 1px solid var(--line-soft); }
 
-/* ---------- About: their own header card, kept ----------
-   `legal_information_root.dart` renders the OFF logo strip plus the `preferences_legal_header`
-   markdown, and it is the only place in the app that says the data is re-usable by anyone.
-   That belongs on the merged About page, so it is copied, not dropped. */
 .abouthead {
   margin: 12px 12px 0; padding: 16px; border-radius: var(--r);
   background: var(--card); border: 1px solid var(--line);
@@ -138,10 +85,6 @@
 .abouthead p { font-size: 13px; color: var(--muted2); line-height: 1.5; }
 .abouthead p b { color: var(--txt); font-weight: 700; }
 
-/* ---------- Contributions / My statistics ---------- */
-
-/* the two counters the shipped app pins in the collapsing app bar
-   (`app_bar_statistics_card.dart`), kept as the record and NOT repeated per row */
 .recs { display: flex; gap: 10px; padding: 0 12px; }
 .rec {
   flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
@@ -150,13 +93,6 @@
 .rec b { display: block; font-size: 21px; font-weight: 800; letter-spacing: -.5px; }
 .rec span { color: var(--muted); font-size: 12.5px; }
 
-/* ⭐ the badge wall. 15 badges, 4 families, thresholds and holder counts are LIVE Open Prices
-   data (`/api/v1/badges`), and the app already ships the client that reads it
-   (`OpenPricesAPIClient`, used by `lazy_counter.dart:32-52`). Nothing here is invented and
-   nothing here renders anywhere today - api-note.md §4. */
-/* ⛔ THREE columns, not five. Five was rendered first and at 412 it gave each tile ~68px: every
-   name wrapped ("Contributor" / "III") and the threshold line was unreadable at 9px. A badge
-   whose threshold you cannot read is a sticker. */
 .bwrap { padding: 12px 12px 0; }
 .badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .bg {
@@ -168,12 +104,10 @@
 .bg .n { min-width: 0; }
 .bg u { text-decoration: none; display: block; font-size: 11px; font-weight: 800; letter-spacing: -.2px; }
 .bg s { text-decoration: none; display: block; font-size: 10.5px; color: var(--muted); }
-/* .45 was rendered in both polarities first: in LIGHT it takes a locked badge's grey to the edge
-   of unreadable, and a locked badge has to stay readable - the threshold on it is the whole point */
+
 .bg.off { opacity: .55; }
 .bg.next { border-color: var(--orange); }
 
-/* the next rung, with the real threshold and how many people are on it */
 .nextb { margin: 12px 12px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; }
 .nextb .nrow { display: flex; align-items: baseline; gap: 8px; font-size: 13.5px; }
 .nextb .nrow b { font-weight: 700; }
@@ -182,8 +116,6 @@
 .nextb .meter { margin: 8px 0 4px; }
 .nextb .rare { font-size: 12px; color: var(--muted); }
 
-/* the leaderboard. ⛔ It is Open Prices' ranking, so it is prices - never "top contributors to
-   Open Food Facts", which no endpoint answers (screens/04-profile/SESSION-NOTES.md) */
 .lrow { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line-soft); }
 .lrow:last-child { border-bottom: 0; }
 .lrow .rk { width: 22px; text-align: center; font-size: 13px; font-weight: 800; color: var(--faint); flex: none; }
@@ -192,8 +124,6 @@
 .lrow.me { background: var(--card2); }
 .lrow.me .rk, .lrow.me .who { color: var(--orange); }
 
-/* the live challenge. Title, icon, subtitle and dates are all server fields on
-   `/api/v1/challenges`; `stats` carries its own ranking */
 .chal { margin: 12px 12px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .chal .chd { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
 .chal .chd .em { font-size: 26px; flex: none; }
@@ -205,18 +135,13 @@
 .chal .cst > span { font-size: 12.5px; color: var(--muted); }
 .chal .cst b { display: block; font-size: 17px; font-weight: 800; color: var(--txt); letter-spacing: -.3px; }
 
-/* the section label above a block that is not a card, used once per stats section */
 .slab { padding: 20px 16px 8px; font-size: 12.5px; font-weight: 700; color: var(--peach); letter-spacing: .3px; }
-
-/* ---------- the in-root search result, which is the tree's one shipped surprise ---------- */
 
 .sfield { margin: 0 12px 12px; }
 .sfield .searchpill span { color: var(--txt); }
-/* ⛔ `.searchpill span { flex: 1 }` lives in shared/ and would stretch the ✕ across the field */
+
 .sfield .searchpill .x { flex: none; color: var(--muted); font-size: 13px; margin-right: 4px; }
 
-/* a chip row inside a row: the four contribution filters, and the five social accounts.
-   Both are cases where shipped drew N destinations and the content is one list plus a filter. */
 .setrow .t .chip { margin: 2px 8px 2px 0; }
 .setrow .t.social { display: flex; flex-wrap: wrap; gap: 8px; }
 .setrow .t.social .chip { margin: 0; }
