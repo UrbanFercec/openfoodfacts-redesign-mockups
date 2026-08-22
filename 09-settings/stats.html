@@ -10,17 +10,6 @@
 </head>
 <body>
 
-<!-- ⛔ ONE destination, two titles. `all_statistics_button.dart:26-35` pushes the SAME
-     `ContributionsRoot` and only overrides the title, so "Contributions" (from the settings
-     row) and "My statistics" (from `See all stats`) are the same screen - the same shape as
-     history_page vs product_list_page in batch 4. Nothing is merged here; the census counted
-     one destination twice.
-
-     ⛔ And the four "products I…" rows are ONE destination too: `contributions_root.dart:75-185`
-     calls the same `_openProductQuery` with the same `PagedUserProductQuery` four times,
-     changing only `type:` and the page title. So they are a FOUR-VALUE FILTER on one list, and
-     they are drawn as one row plus four chips - which also removes four refresh buttons. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -31,18 +20,14 @@
 
   <div class="pcard2">
     <h3>My contributions</h3>
-    <!-- ⚠️ 431,052 was read on 19 Aug. The count endpoint answered 4 of 8 calls that day and
-         0 of 4 today, and `AppBarStatisticsCard` prints `0` on null - so a contributor with
-         431,052 edits currently sees a zero. The design keeps the last known value and says
-         when it was read, instead of the four ↻ buttons shipped puts on this screen. -->
+    
     <a class="setrow todo" title="The filtered contribution list is family 8 - not drawn in this batch">
       <span class="pi">&#127859;</span>
       <span class="t"><b>Products I contributed to</b><i>Read 19 Aug, the count service is answering 1 call in 3</i></span>
       <span class="cnt">431,052</span>
       <span class="go2">&rsaquo;</span>
     </a>
-    <!-- no leading icon on the filter row: the chips ARE the content, and an icon in the 26px
-         gutter only indents them (rendered both ways, 2026-08-21) -->
+    
     <div class="setrow">
       <span class="t">
         <span class="chip todo" title="Same list, filtered - not drawn">Added products</span>
@@ -51,8 +36,7 @@
         <span class="chip todo" title="Same list, filtered - not drawn">Products I need to complete</span>
       </span>
     </div>
-    <!-- a different query - `PagedToBeCompletedProductQuery`, not scoped to the user - so it
-         stays its own row rather than becoming a fifth chip -->
+    
     <a class="setrow todo" title="The global incomplete-products list is family 8 - not drawn">
       <span class="pi">&#128065;</span>
       <span class="t"><b>All incomplete products</b><i>Products you can help complete</i></span>
@@ -75,15 +59,6 @@
     </a>
   </div>
 
-  <!-- ⭐ EVERYTHING BELOW IS LIVE OPEN PRICES DATA AND NOTHING RENDERS IT TODAY.
-       `/api/v1/badges` serves 15 badges with their metric, threshold and holder count;
-       `/api/v1/users/<user>/badges` serves the ones this user has earned and when;
-       `/api/v1/challenges` serves the running challenge with its own ranking.
-       The app already ships the client that talks to that host (`OpenPricesAPIClient`, used by
-       `lazy_counter.dart:32-52`), and that host answered 8 of 8 probes while the OFF count
-       endpoint answered 4 of 12. Evidence: evidence/settings-badges-*.json, api-note.md §4.
-       ⛔ Flag this in the channel as NEW BEHAVIOUR, not a restyle. -->
-
   <div class="slab">BADGES &middot; 10 OF 15</div>
   <div class="bwrap">
     <div class="badges">
@@ -105,9 +80,6 @@
     </div>
   </div>
 
-  <!-- the two nearest rungs, with the real threshold and how rare the badge is. The rarity is
-       `badge.user_count` straight off the taxonomy - it is the only number on this screen that
-       makes a badge mean something -->
   <div class="nextb">
     <div class="nrow"><b>Challenger III</b><span class="spacer"></span><span class="n">8 of 10 challenges</span></div>
     <div class="meter"><i style="width:80%"></i></div>
@@ -117,7 +89,6 @@
     <div class="rare">10 people have it</div>
   </div>
 
-  <!-- the running challenge: title, icon, subtitle, dates and stats are all server fields -->
   <div class="chal">
     <div class="chd">
       <span class="em">&#127798;</span>

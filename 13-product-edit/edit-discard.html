@@ -10,20 +10,6 @@
 </head>
 <body>
 
-<!-- `may_exit_page_helper.dart:14-44` - the guard every edit surface shares. All four strings are
-     shipped verbatim: `edit_product_form_item_exit_title` = "Quit without saving?",
-     `_exit_confirmation` = "Do you want to save your changes before leaving this page?",
-     `_exit_confirmation_positive_button` = "Save changes",
-     `_exit_confirmation_negative_button` = "Discard changes".
-
-     ⛔ THREE THINGS CHANGE, and all three are the standing sheet rule, not taste
-     (design-system.md §3i, Urban 2026-08-22):
-     1. NO ✕. Frame v1_t069 draws a close button top-right on this exact dialog. The grabber,
-        swipe-down and the scrim are the exit.
-     2. One stop, content height, dimmed scrim behind it - it is not a full-bleed red panel.
-     3. The shipped version paints the whole sheet with the error colour. A question is not an
-        error: the destructive CHOICE is what carries the colour, not the container. -->
-
 <div class="app">
 
   <div class="dim">
@@ -59,10 +45,7 @@
         <span class="unit"><span class="sel">kcal</span></span>
         <span class="eye">&#128065;</span>
       </div>
-      <!-- ⛔ This row first drew `0.8` as the unsaved edit and that is INVENTED DATA - a number a
-           contributor typed is still a number on the screen, and `salt_100g` is null on this
-           product (design-system.md §4 rule 0). The sheet itself is the state being drawn; the
-           table underneath stays exactly what the API returns. -->
+      
       <div class="nrow">
         <span class="nm">Salt</span>
         <span class="fld empty">&#8212;</span>

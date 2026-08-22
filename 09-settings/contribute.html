@@ -10,19 +10,6 @@
 </head>
 <body>
 
-<!-- Four cards, nine rows, verbatim from `roots/contribute_root.dart`. Nothing is merged and
-     nothing is dropped: this is the one root in the tree where every row is a different way in,
-     and their own CONTRIBUTING.md roadmap is built out of exactly these.
-
-     ⛔ What IS changed: four of the nine leave the app and four open a bottom sheet, and shipped
-     draws all nine with the same chevron. ↗ says browser, ✂ says share sheet, › says it stays
-     here. `tiles/url_preference_tile.dart:7-39` already swaps the icon - we just make it
-     legible on a screen where it matters.
-
-     ⛔ And the `DEV Mode?` toggle is REMOVED from the Software development sheet. It has two
-     entry points today, one of them buried in a sheet about GitHub (CAPTURE-FINDINGS.md F12);
-     ours keeps the one in About, next to the Labs row it unlocks. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -52,8 +39,7 @@
       <span class="t"><b>Software development</b><i>Learn how to contribute to software development</i></span>
       <span class="go2">&rsaquo;</span>
     </a>
-    <!-- store-gated: shown only when `GlobalVars.appStore.getEnrollInBetaURL() != null`
-         (`contribute_root.dart:305-306`), so an iOS TestFlight build has no such row -->
+    
     <a class="setrow todo" title="Sheet: a warning plus OKAY. Not drawn">
       <span class="pi">&#129514;</span>
       <span class="t"><b>Enroll in the alpha version of the app</b><i>Daily unstable builds, brand new features</i></span>

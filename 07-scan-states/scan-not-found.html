@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
-
 <div class="app full">
 
   <div class="scan">
@@ -25,16 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- ⭐ CHECKED AGAINST THE FRAME THAT ARRIVED AFTER THIS SCREEN WAS FIRST DRAWN -
-         captures/2026-08-21-app/frames/v10_t010_scan-12-barcode-not-found.png. Every string
-         matches, header dot and circular ✕ included; every string is shipped
-         (`carousel_unknown_product_*`), including the underline, because the .arb value is
-         "You've found __the rare gem!__". The barcode is a real 404 - the ISBN of a book,
-         evidence/scanlists-not-found-isbn.json, HTTP 404 / status 0 / "product not found".
-         ⚠️ TWO details the frame has and this does not, both deliberate and both in
-         SESSION-NOTES §CHANGED: shipped draws the barcode as ACTUAL BARS in a white card (ours
-         prints the digits in a mono pill), and its reticle is a circle with a barcode glyph
-         inside rather than their artboards' magnifier. -->
     <div class="csheet">
       <div class="grab"><span class="bar"></span></div>
       <div class="chd">
@@ -46,12 +34,7 @@
           <h3>Congratulations!<br>You've found <u>the rare gem!</u></h3>
           <p>Our collaborative database contains more than <b>3 million products</b>, but this barcode doesn't exist:</p>
           <span class="bar">9780140328721</span>
-          <!-- ⭐ WIRED 2026-08-22 by batch 6. This was `class="btnpeach todo"` with the title
-               "Product creation is family 9, batch 6" - family 9 is now drawn, so the dead end is
-               closed. ⛔ Wiring only, not a redraw (/design-screen §6a-bis): `.todo` is styled
-               solely by shared/proto.css, which the published lanes load and a source screen never
-               does, so removing it cannot move this render. Proven, not asserted - the 412 render
-               is byte-identical before and after (sha 251610e2641566eb81eb1b1a). -->
+          
           <a class="btnpeach" href="../13-product-edit/newproduct.html">Add this product</a>
         </div>
       </div>

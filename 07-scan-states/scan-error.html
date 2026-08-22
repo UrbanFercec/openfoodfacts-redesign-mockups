@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
-
 <div class="app full">
 
   <div class="scan">
@@ -25,13 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- the offline / network state, `ScanProductCardError`. All four strings shipped
-         (`carousel_error_header`, `_title`, `_text_1`, `_text_2`, `_button`).
-         CHANGED by the reshape, and it is theirs: their artboard 26 gives this one sheet a RED
-         header band while the neutral sheets keep a plain one, so the header carries the verdict
-         instead of being a label. Nothing else on the screen is red, so it reads.
-         ⭐ Their own roadmap asks for offline scanning ("Add offline scanning", issue #18), so
-         this is the honest version of a state they already want to remove. -->
     <div class="csheet">
       <div class="grab"><span class="bar"></span></div>
       <div class="chd err">

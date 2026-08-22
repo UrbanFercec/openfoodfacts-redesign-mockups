@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
-
 <div class="app full">
 
   <div class="scan">
@@ -25,12 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- ⛔ KEPT, deliberately: the shipped loading state brags about the database size
-         (`carousel_loading_text`) and it is the only place in the app that does. A spinner
-         would have been shorter and would have thrown that away.
-         Their own artboard 22 draws exactly this as a sheet - `Code-barres detecte !` with the
-         barcode underlined in the sentence - so the container is theirs and the words are the
-         shipped English ones. -->
     <div class="csheet">
       <div class="grab"><span class="bar"></span></div>
       <div class="chd">

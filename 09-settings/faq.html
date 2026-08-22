@@ -10,19 +10,6 @@
 </head>
 <body>
 
-<!-- ⛔ TWO SUBTRACTIONS, both with the key as the evidence:
-
-     1. `how_to_contribute` is the SAME arb key and the SAME url on `faq_root` and on
-        `contribute_root`. One row, two homes. It keeps the one on Contribute, where the rest of
-        the volunteering rows are, and comes off here.
-     2. the whole `Discover the project` card (Open Food Facts / Beauty / Pet Food / Products /
-        Prices) and the `The Open Food Facts NGO` card (Partners & Patrons, Vision Mission
-        Values) MOVE to About. They describe the organisation; this page answers questions about
-        the scores. That is 7 rows off a help screen and onto the page that is already about the
-        project - no destination is added and none is lost.
-
-     What is left is what the title promises: how the four scores are computed. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -53,9 +40,7 @@
       <span class="t"><b>Ultra-processed foods - NOVA groups</b></span>
       <span class="go2">&rsaquo;</span>
     </a>
-    <!-- ⚠️ B7: this row's subtitle is a HARDCODED ENGLISH LITERAL in `faq_root.dart:271-286`,
-         not an arb key, so it ships in English to all 128 locales. Drawn as it ships; the
-         defect is in code-defects.md, not designed away. -->
+    
     <a class="setrow todo" title="External: the UK FSA traffic-light page, opened in a webview">
       <span class="pi">&#128721;</span>
       <span class="t"><b>Nutrient Levels</b><i>Discover the UK FSA methodology</i></span>

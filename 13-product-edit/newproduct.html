@@ -10,22 +10,6 @@
 </head>
 <body>
 
-<!-- ⭐ THE SUBTRACTION IS OFF'S OWN, TWICE OVER.
-     What ships (add_new_product_page.dart:40-765, frames v10_t012 - v10_t024) is SIX steps:
-     select the product type -> a photo checklist -> `Compute the Nutri-Score` ->
-     `Compute the Green Score` -> `Compute the food processing level (NOVA)` -> `And some basic
-     data…`. ⛔ The middle three draw THE SAME THREE ACTION ROWS - `Select a category` /
-     `Fill nutrition facts` / `Add missing ingredients` - and change only the badge above them,
-     because all three scores are computed from the same three inputs.
-
-     Their own design already fixed it: `their-designs/all/Product_addition_V1_5/00_Step_0` draws
-     the whole flow as `0 Créez un compte · 1 Informations de base · 2 Prenez quelques photos ·
-     3 Calcul des scores*` with the footnote `*Étape optionnelle`. Three steps, and the score step
-     optional. This is that, with their Step 1 (type + language + name + brands on ONE page) kept.
-
-     Reached from `scan-not-found` in screens/07-scan-states - `missing_product` = "You found a new
-     product!" is the shipped string on that card. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -46,8 +30,7 @@
         <span class="n">2</span>
         <span class="t"><b>Take more pictures</b><i>Take photos of the packaging to add this product to Open Food Facts</i></span>
       </div>
-      <!-- ⭐ optional, exactly as their own artboard marks it. The three shipped score screens
-           collapse into this one because they ask for the same three things. -->
+      
       <div class="step opt">
         <span class="n">3</span>
         <span class="t"><b>Compute the Nutri-Score</b><i>Select a category, Fill nutrition facts, Add missing ingredients</i></span>
@@ -55,8 +38,6 @@
     </div>
   </div>
 
-  <!-- `product_type_selection_subtitle` = "Select the type of this product". The four verticals
-       are the shipped `ProductType` enum, and the order is theirs (v10_t012). -->
   <div class="pcard2">
     <h3>Select the type of this product</h3>
     <div class="vert on">
@@ -81,8 +62,6 @@
     </div>
   </div>
 
-  <!-- their Step 1 holds type + language + name + brands on ONE page, so the shipped wizard's
-       separate `And some basic data…` step disappears into it -->
   <div class="pcard2">
     <h3>Basic Details</h3>
     <div class="fexp">
@@ -92,8 +71,7 @@
       <div class="tagin"><span>Input brands (eg: Ferrero)</span><span class="add">+</span></div>
       <span class="flab">Quantity and weight</span>
       <div class="tagin"><span>Input the weight and if needed the quantity (eg : 4x100g)</span><span class="add">+</span></div>
-      <!-- the shipped validation, `edit_product_form_item_error_empty`. It exists, and the first
-           fact-finder sweep of this batch reported that it did not - CAPTURE-FINDINGS.md F16. -->
+      
       <div class="ferr"><span>&#9888;</span><span>Please enter a non-empty value!</span></div>
     </div>
   </div>

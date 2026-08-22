@@ -10,17 +10,6 @@
 </head>
 <body>
 
-<!-- ⭐ The best-hidden good feature in the tree. `roots/preferences_root.dart:67-173` puts
-     `searchTiles` on the BASE class, so every root searches its own rows, and when nothing
-     matches, `tiles/external_search_tiles/*` route the query to the wiki, GitHub and the forum
-     instead of dead-ending (CAPTURE-FINDINGS.md F10, frames/t577).
-
-     ⛔ We keep it exactly. The one thing we add is the SECTION HEADER: shipped shows three bare
-     rows with no line saying the app found nothing, and there is no `no result` string in
-     app_en.arb at all (checked - the key does not exist). One new key, named in design-brief.md.
-     The three row titles are the shipped format string `external_search_tile_title`
-     = `Search {provider} for "{keyword}"`, filled - not authored. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -30,10 +19,7 @@
   </div>
 
   <div class="sfield">
-    <!-- ⛔ the ✕ is the QUIET one and the magnifier keeps the accent, which is both what shipped
-         does (frames/t577: ✕ on the left, a filled circular magnifier on the right) and what the
-         rest of our design does. Drawn the other way round first: an orange filled ✕ is the
-         loudest thing on the screen and it reads as destructive. -->
+    
     <div class="searchpill"><span class="x">&#10005;</span><span>ehag</span><span class="go">&#128269;</span></div>
   </div>
 

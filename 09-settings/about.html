@@ -10,20 +10,6 @@
 </head>
 <body>
 
-<!-- ⛔ THE ONE MERGE IN THIS BATCH: `about_app_root` + `legal_information_root` are one page.
-     The census asked batch 5 to rule it and the evidence is that neither is a destination on its
-     own - Legal is a static markdown header plus three browser links plus one row into Licenses,
-     About is three read-only facts plus one browser link plus a toggle. Between them, six of the
-     nine rows do nothing but open a URL. Their own CONTRIBUTING.md asks for "revamped settings
-     that are less cluttered"; this is one fewer row on the profile root and one fewer screen.
-
-     ⛔ ZERO NEW STRINGS: the page keeps the shipped title `About the app` and every card header
-     is the shipped card header from whichever root it came from. The merge is a concatenation,
-     which is also why it is safe to review.
-
-     ⭐ Two cards MOVED IN from the FAQ root - `Discover the project` and `The Open Food Facts
-     NGO`. They are about the organisation, not about the scores. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -32,9 +18,6 @@
     <a class="ico" href="settings-search.html">&#128269;</a>
   </div>
 
-  <!-- their own header, `preferences_legal_header`, verbatim including where it puts the bold.
-       It is the only place in the app that tells a user the data is theirs to re-use, so it
-       survives the merge rather than being dropped with the root it came from. -->
   <div class="abouthead">
     <div class="logo">open<em>FOOD</em>facts</div>
     <p>Open Food Facts is a food products database <b>made by everyone, for everyone</b>.
@@ -42,10 +25,6 @@
        <b>re-use it for any purpose</b>.</p>
   </div>
 
-  <!-- three read-only facts. ⛔ No chevron on any of them: nothing opens, and shipped draws
-       them with none either. All three values are live (`PackageInfo.version`,
-       `GlobalVars.scannerLabel`, `GlobalVars.storeLabel`); the ones printed here are the
-       recorded device's - app 4.22.3, MLKit, Google Play Store. -->
   <div class="pcard2">
     <h3>Information</h3>
     <div class="setrow">
@@ -64,30 +43,25 @@
 
   <div class="pcard2">
     <h3>Discover the project</h3>
-    <a class="setrow todo" title="External: openfoodfacts.org">
+    <a class="setrow" href="../12-guides/guides-reader.html">
       <span class="pi">&#127859;</span>
       <span class="t"><b>Discover Open Food Facts</b></span>
-      <span class="ext">&#8599;</span>
     </a>
-    <a class="setrow todo" title="External: openbeautyfacts.org">
+    <a class="setrow" href="../12-guides/guides-reader.html">
       <span class="pi">&#128132;</span>
       <span class="t"><b>Discover Open Beauty Facts</b></span>
-      <span class="ext">&#8599;</span>
     </a>
-    <a class="setrow todo" title="External: openpetfoodfacts.org">
+    <a class="setrow" href="../12-guides/guides-reader.html">
       <span class="pi">&#128062;</span>
       <span class="t"><b>Discover Open Pet Food Facts</b></span>
-      <span class="ext">&#8599;</span>
     </a>
-    <a class="setrow todo" title="External: openproductsfacts.org">
+    <a class="setrow" href="../12-guides/guides-reader.html">
       <span class="pi">&#128230;</span>
       <span class="t"><b>Discover Open Products Facts</b></span>
-      <span class="ext">&#8599;</span>
     </a>
-    <a class="setrow todo" title="External: prices.openfoodfacts.org">
+    <a class="setrow" href="../12-guides/guides-reader.html">
       <span class="pi">&#127991;</span>
       <span class="t"><b>Discover Open Prices</b></span>
-      <span class="ext">&#8599;</span>
     </a>
   </div>
 
@@ -122,10 +96,7 @@
       <span class="t"><b>Privacy policy</b></span>
       <span class="ext">&#8599;</span>
     </a>
-    <!-- ⛔ NOT DRAWN and not ours to draw: `licenses_page.dart` wraps Flutter's stock
-         `LicensePage`, and its content is generated from the dependency registry at runtime.
-         It stays a real page (design-system.md §3h tier 3 - it has its own per-package scroll)
-         and it stays theirs. -->
+    
     <a class="setrow todo" title="Flutter's stock LicensePage - generated at runtime, deliberately not redrawn">
       <span class="pi">&#128196;</span>
       <span class="t"><b>Licenses</b></span>
@@ -142,12 +113,6 @@
     </a>
   </div>
 
-  <!-- ⛔ TWO CHANGES HERE, both because the shipped version has no feedback loop:
-       1. flipping `DEV Mode?` today makes a row appear on a DIFFERENT screen - the profile root
-          (`preferences_page.dart:108`, `if (userPreferences.devMode > 0)`). Ours reveals the
-          Labs row in place, under the switch that unlocked it.
-       2. shipped paints this card's header RED (frames t565, t567). A developer switch is not a
-          danger; the red is dropped and the card is a card. -->
   <div class="pcard2">
     <h3>Development</h3>
     <div class="setrow">

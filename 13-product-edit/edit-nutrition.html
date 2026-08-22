@@ -10,23 +10,6 @@
 </head>
 <body>
 
-<!-- ⭐ WHICH ROWS ARE ON SCREEN IS SERVER DATA, NOT OURS. `nutrition_page.dart:595-601` builds
-     every row from `OrderedNutrients`, fetched and cached per ProductType by
-     `ordered_nutrients_cache.dart:11-60`. Pulled live (evidence/edit-ordered-nutrients-en.json):
-     66 top-level nutrients, of which exactly **9 carry `important: true`**, plus `saturated-fat`
-     and `sugars` as important CHILDREN. So the default table is 11 rows and the other 55 sit
-     behind `nutrition_page_add_nutrient`. design-system.md §4 rule 6 - read, never author.
-
-     ⚠️ TWO THINGS THE SHIPPED SCREEN DROPS. (1) The server sends a TWO-LEVEL TREE - saturated fat
-     is a child of fat, sugars a child of carbohydrates - and the shipped page renders one flat
-     list (frames v1_t110, v1_t119), so a contributor cannot see that they are entering a part and
-     its whole. (2) `energy` is a third `important` id whose unit is also kj, and the app folds it
-     into `energy-kj` (`id == 'energy' -> Nutrient.energyKJ`), so it must NOT be drawn as a third
-     energy row.
-
-     Values: evidence/editpoor-3800205872962.json, per 100 g. Salt is genuinely absent on this
-     product - `salt_100g` is null - and salt is one of the 9 the server marks important. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -43,9 +26,6 @@
     </span>
   </div>
 
-  <!-- the shipped OCR offer, verbatim: `nutrition_facts_extract_new` +
-       `nutrition_facts_extract_button_text`. Their own artboard puts the same thing at the top of
-       the table as `Extraire automatiquement`, with a `Detecting nutrients…` state after it. -->
   <div class="ocr">
     <span class="t">NEW: You can automatically extract the nutrients from the picture!</span>
     <span class="go">Extract now</span>
@@ -54,8 +34,6 @@
   <div class="pcard2">
     <h3>Nutrition facts</h3>
 
-    <!-- `nutrition_page_serving_type_label` + `nutrition_page_per_100g`. `nutrition_data_per` is
-         "100g" on this product, so this picker is showing a real stored value, not a default. -->
     <div class="perrow">
       <span class="t">Nutritional values:</span>
       <span class="sel">per 100g <span class="g">&#9662;</span></span>
@@ -64,7 +42,7 @@
       <span class="t">Serving size</span>
       <span class="sel">100.0g</span>
     </div>
-    <!-- the nutrition photo exists, in German - `nutrition_page_nutritional_info_open_photo` -->
+    
     <a class="perrow" href="edit-photos.html">
       <span class="t">Open photo</span>
       <span class="lang">DE</span>
@@ -89,7 +67,7 @@
       <span class="unit"><span class="sel">g <span class="g">&#9662;</span></span></span>
       <span class="eye">&#128065;</span>
     </div>
-    <!-- a CHILD of fat in the server's own tree, and important there too -->
+    
     <div class="nrow sub">
       <span class="nm">Saturated fat</span>
       <span class="fld">1.2</span>
@@ -120,17 +98,14 @@
       <span class="unit"><span class="sel">g <span class="g">&#9662;</span></span></span>
       <span class="eye">&#128065;</span>
     </div>
-    <!-- ⚠️ EMPTY, and the server marks it important - `salt_100g` is null on this product. This is
-         the row the whole screen is for, and the shipped flat list buries it among 60 others. -->
+    
     <div class="nrow">
       <span class="nm">Salt</span>
       <span class="fld empty">&#8212;</span>
       <span class="unit"><span class="sel">g <span class="g">&#9662;</span></span></span>
       <span class="eye">&#128065;</span>
     </div>
-    <!-- ⚠️ printed VERBATIM from the server, including its two U+201A low quotation marks where a
-         comma belongs. That is a taxonomy-string defect on their side, not a typo here -
-         api-note.md §5. Paraphrasing it would break design-system.md §4 rule 0. -->
+    
     <div class="nrow">
       <span class="nm">Fruits&#8218; vegetables&#8218; legumes</span>
       <span class="fld empty">&#8212;</span>

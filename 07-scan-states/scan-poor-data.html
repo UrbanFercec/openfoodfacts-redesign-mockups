@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
-
 <div class="app full">
 
   <div class="scan">
@@ -25,17 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- ⭐ THE SHEET THEIR OWN ROADMAP COMPLAINS ABOUT. smooth-app/CONTRIBUTING.md §Next:
-         "Improve the scan experience when Nutri-Score and Eco-Score are not present (some
-         people don't click on the card even if fully unhelpful)". The shipped card stacks two
-         grey pills and a "Tap to see more info…" footer, so the only thing it offers is a tap
-         into more nothing.
-
-         KEPT through the reshape, unchanged: the two honest server sentences, and under them
-         what would fix it, ranked, with the shipped action labels. No % badge - the shipped
-         helper hides it for UNKNOWN_MATCH, and a 0% here would be a lie about a product nobody
-         has measured.
-         Drawn expanded rather than at peek height, because the ranked fixes ARE the state. -->
     <div class="csheet">
       <div class="grab">
         <span class="bar"></span>

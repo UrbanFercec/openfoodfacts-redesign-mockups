@@ -10,16 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Home tab = a home with a prominent Scan button, never a full-bleed camera (shell-contract.md line 16 + design-constraints.md §8c, conceded to the founder) -->
-
-<!-- The signed-out landing screen. Urban, 2026-08-20: the app never invites an account,
-     it only demands one after you already tried to contribute (`product_refresher.dart:27-75`,
-     26 call sites), so the one place that asks is the Profile tab's app bar
-     (`preferences_v2/preferences_page.dart:66`). This page adds ONE invitation and changes
-     nothing else: everything on Home that works without an account keeps working.
-
-     ⛔ Only two blocks differ from home-app.html, and both are marked SIGNED OUT below. -->
-
 <div class="app">
 
   <div class="brandblock">
@@ -33,7 +23,6 @@
     <span class="chev">&rsaquo;</span>
   </div>
 
-  <!-- unchanged: scan history is local, so it is the same signed in or out -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>Last scanned products</span>
@@ -64,12 +53,6 @@
     </div>
   </div>
 
-  <!-- SIGNED OUT, change 1 of 2: the two counters are GONE, not zeroed.
-       Signed in this module ends with `0 products edited · 0 prices added`; signed out
-       those numbers can only ever be a personal record nobody is keeping, and printing
-       a zero invents a fact. The three action tiles stay live and stay tappable - each
-       already routes through the shipped account gate (`account_create_message` +
-       `join_us`), so nothing here is a dead end. -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>Contribute</span>
@@ -84,19 +67,6 @@
     </div>
   </div>
 
-  <!-- SIGNED OUT, change 2 of 2: the ONE promo slot, in its account state.
-       That slot is not new and it is not ours: `scan_bottom_card.dart:35-60` already
-       arbitrates two cards in it - the rating prompt wins, otherwise the remote tagline
-       (which is what carries the funding meter in home-app.html) - and both are
-       dismissible through the same ✕ (`ScanBottomCardContainer.onClose`).
-       This is a THIRD case in that switch, on the throttle the shipped rating prompt
-       already uses: after 5 launches, then every 4th (`app_review.dart:12-13`). Same
-       slot means it can never collide with the rating ask, and on the other launches
-       this module is the donation card exactly as drawn in home-app.html.
-       ⛔ Every string is shipped, none is ours: `join_us`, `account_create_message`,
-       `create_account`, `sign_in` (app_en.arb:534, :530, :267, :271 - so 128 locales).
-       The art is the app's own `assets/onboarding/globe.svg`, which is the illustration
-       the shipped account dialog already uses. -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>From Open Food Facts</span>

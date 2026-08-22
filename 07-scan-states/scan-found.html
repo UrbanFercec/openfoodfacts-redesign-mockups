@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18). -->
-
 <div class="app full">
 
   <div class="scan">
@@ -25,18 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- ⭐ ONE SHEET, ONE HEIGHT. Was two pages until 2026-08-22 (a peek plus a dragged-open
-         state); Urban ruled bottom sheets are never partially open, so the peek is gone and this
-         is the whole card - identity, every criterion row, the drill-in. It is still why the
-         left/right carousel is not needed: one product at a time instead of `barcodes.length + 1`
-         pages. Rule: design-system.md §3i.
-         ⚠️ ~36% of the screen against the shipped `maxHeight: 0.35 x screen`
-         (camera_view.dart:131). The cap an implementer sets is 0.75, not 0.35, and it is a real
-         number rather than a rounding difference.
-         ⛔ THE STATE NOBODY HAS A PICTURE OF - neither device recording caught a full-data card,
-         so the content is the shipped card's structure plus live data: wasa Fibres
-         7300400481588, 78% / VERY_GOOD_MATCH computed with OFF's own algorithm
-         (screens/05-search/match.py). -->
     <div class="csheet">
       <div class="grab">
         <span class="bar"></span>

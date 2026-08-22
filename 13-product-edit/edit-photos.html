@@ -10,19 +10,6 @@
 </head>
 <body>
 
-<!-- Family 10. Roles and their ORDER are the app's own `getOrderedMainImageFields`
-     (helpers/image_field_extension.dart:8-24): food gets FRONT · INGREDIENTS · NUTRITION ·
-     PACKAGING, beauty drops NUTRITION, `product` drops both, and OTHER is never in the ordered
-     list - it is the "More interesting photos" strip instead.
-
-     ⭐ THE FINDING THIS SCREEN EXISTS FOR, and the API is what surfaced it. On 3800205872962 the
-     images are front_en, front_de, ingredients_de, nutrition_de, packaging_de. So in an ENGLISH
-     UI three of the four roles are empty WHILE THREE PHOTOS EXIST, in German. The shipped grid
-     draws one empty box for both cases; the app already ships two different strings for them -
-     `edit_photo_language_none` = "No image yet" and `edit_photo_language_not_this_one` = "No image
-     in that language yet". Drawing one for both throws away the more useful half, and the useful
-     half is the one that tells a contributor there is nothing to photograph. -->
-
 <div class="app">
 
   <div class="sbar">
@@ -39,9 +26,6 @@
     </span>
   </div>
 
-  <!-- `EditLanguageTabBar` (edit_language_tabbar.dart:19-501) already tabs the languages a
-       product has. `product_add_a_language` = "Add a language". ⛔ The full 100+ language list it
-       opens is a SHEET, not the full screen frame v1_t038 draws - SCREEN-CENSUS.md batch-6 rows. -->
   <nav class="tabs">
     <a class="on">English</a><a>Deutsch</a><a>Add a language</a>
   </nav>
@@ -76,12 +60,6 @@
 
     </div>
 
-    <!-- ⭐ A REAL Robotoff insight for this barcode, not an authored one: type `nutrition_image`,
-         value_tag `de`, proof `/380/020/587/2962/3.jpg`
-         (evidence/edit-robotoff-3800205872962.json). It proposes which upload IS the nutrition
-         photo, which is exactly the gap the grid above shows. Their own artboard draws the shape
-         with the crop labelled `Preuve`; every string ships (`product_edit_robotoff_*`).
-         ⚠️ annotation is 1 today - a human accepted it - so this is the state before that.  -->
     <div class="sugg">
       <div class="sg">
         <span>Nutrition photo</span><b>Deutsch</b>
@@ -96,9 +74,6 @@
     </div>
   </div>
 
-  <!-- `more_photos` = "More interesting photos" - the OTHER role, which is never in the ordered
-       list. 5 raw uploads on this product. `add_photo_button_label` = "Add photo",
-       `view_more_photo_button` = "View all existing photos for this product". -->
   <div class="pcard2">
     <h3>More interesting photos</h3>
     <div class="pstrip">

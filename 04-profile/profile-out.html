@@ -10,13 +10,8 @@
 </head>
 <body>
 
-<!-- shell: Profile tab = the renamed Community tab, one of four flat slots (shell-contract.md, rows Tabs + First tab's name) -->
-
 <div class="app">
 
-  <!-- the common case: most people never sign in. Their own
-       `Profil (déconnecté)` artboard greys the contribution tiles out and
-       says you need an account first -->
   <div class="pout">
     <div class="who"><span class="av">&#127818;</span><b>Logged out</b></div>
     <div class="btns">
@@ -25,8 +20,6 @@
     </div>
   </div>
 
-  <!-- pinned in production: it is the one part of the collapsing header that survives the
-       collapse (profile_app_bar.dart:34-40) -->
   <div class="psearch">
     <div class="searchpill"><span>Search for a setting (e.g. Nutri-Score)</span><span class="go">&#9906;</span></div>
   </div>
@@ -49,8 +42,7 @@
 
   <div class="pcard2">
     <h3>Customize the app</h3>
-    <!-- ⛔ FOUR verticals, not one - see the note in profile-in.html. Signed out they all still
-         work: food preferences need no account, which is what the card above says. -->
+    
     <a class="setrow" href="../06-food-preferences/prefs-intro.html">
       <span class="pi">&#127838;</span>
       <span class="t"><b>Food Preferences</b><i>Choose what information about food matters most to you.</i></span>
