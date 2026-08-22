@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare Products - nothing selected yet</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- ⛔ Every string on this page already ships. The three in the panel are Explorer's own
+     (compare.no_products_selected, compare.add_products_hint, compare.browse_products); the three
+     ways in are the routes the app and Explorer already have, with their own labels:
+     plural_compare_x_products (scan header), compare_products_mode (a list's multi-select),
+     product.buttons.compare (Explorer's product page). Nothing is authored here. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="../03-home/home-app.html">&#8592;</a>
+  <span class="ttl"><b>Compare Products</b><i>No products selected</i></span>
+</div>
+
+<div class="wrap">
+
+  <h1>Compare Products</h1>
+  <div class="hmeta">
+    <span>Compare nutritional information of food products</span>
+    <span class="spacer"></span>
+  </div>
+
+  <div class="cols">
+    <aside>
+      <div class="card">
+        <h2>Your 3 criteria</h2>
+        <div class="note">Whatever you compare is ordered by these first.</div>
+        <ul class="crit">
+          <li><span class="d good"></span>Good nutritional quality (Nutri-Score)<span class="w">Very important</span></li>
+          <li><span class="d good"></span>Low environmental impact (Green-Score)<span class="w">Important</span></li>
+          <li><span class="d good"></span>No or little food processing (NOVA group)<span class="w">Important</span></li>
+        </ul>
+        <a class="chip todo" title="Food preferences - screens/06-food-preferences">Edit your food preferences</a>
+      </div>
+    </aside>
+
+    <main>
+      <div class="empty">
+        <div class="g">&#8646;</div>
+        <h2>No products selected for comparison</h2>
+        <p>Add products from their detail pages to start comparing nutritional values</p>
+        <a class="btnpeach" href="../11-facets/facets-value.html">Browse Products</a>
+
+        <!-- ⛔ an empty state is a route, not a dead end (design-system.md §4 rule 3). All three
+             of these exist in the shipped clients today and every one of them is already drawn
+             on one of our screens -->
+        <div class="ways">
+          <a class="way" href="../07-scan-states/scan-found.html">
+            <span class="g2">&#9678;</span>
+            <span class="t"><b>Compare 2 Products</b><i>Scan two, then the button in the Scan header wakes up</i></span>
+            <span class="arw">&rsaquo;</span>
+          </a>
+          <a class="way" href="../08-lists/lists-multiselect.html">
+            <span class="g2">&#9782;</span>
+            <span class="t"><b>Compare selected products</b><i>Multi-select in any list, then the actions sheet</i></span>
+            <span class="arw">&rsaquo;</span>
+          </a>
+          <a class="way" href="compare-ranked.html">
+            <span class="g2">&#9776;</span>
+            <span class="t"><b>Add to compare</b><i>From a ranking, a search result or a product page</i></span>
+            <span class="arw">&rsaquo;</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</div>
+
+</body>
+</html>
